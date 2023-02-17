@@ -1,0 +1,19 @@
+{
+  "name": "opd",
+  "version": "0.0.1",
+  "description": "js app",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "parcel ./src/smth.html -p 4444 --open",
+    "build": "parcel build ./src/smth.html --no-source-maps"
+  },
+  "keywords": [
+    "js",
+    "firts_project"
+  ],
+  "author": "Avarage-Java-Enjoyer69",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.8.3"
+  }
+}
