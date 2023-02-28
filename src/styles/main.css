@@ -21,3 +21,115 @@
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
     overflow-y: auto;
 }
+* {
+    margin: 0;
+    padding: 0;
+}
+:root {
+    --index: calc(1vw + 1vh);
+}
+@font-face {
+    font-family: railway_f;
+    src: url(../fonts/raleway-regular.ttf);
+}
+@font-face {
+    font-family: railway_f;
+    src: url(../fonts/raleway-black.ttf);
+    font-weight: 900;
+}
+body {
+    background-color: #010101;
+    color: #fff;
+    font-family: railway_f, sans-serif;
+    line-height: 1.55;
+}
+.main_header {
+    position: relative;
+}
+.layers {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: black;
+    z-index: 1;
+}
+.layer {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-size: cover;
+    will-change: transform;
+
+}
+.layers_base{
+}
+
+.layers_base{
+    transform: translate3d(0, calc(var(--scrollTop)/1.6), 0);
+}
+
+.layers_front{
+    transform: translate3d(0, calc(var(--scrollTop)/2.5), 0);
+    z-index: 3;
+}
+.layers_header{
+    margin-top: -600px;
+    z-index: 2;
+    transform: translate3d(0, calc(var(--scrollTop)/2), 0);
+    will-change: transform;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+.layers_title{
+    font-size: calc(var(--index) * 2.5);
+    letter-spacing: calc(var(--index) / 10 );
+}
+.layers_captoin{
+    font-size: calc(var(--index) / 1.1);
+    letter-spacing: calc(var(--index) / 10 );
+}
+.main-article{
+    z-index: 4;
+    min-height: 100vh;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-size: cover;
+    will-change: transform;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-article_header{
+    text-transform: uppercase;
+    font-size: calc(var(--index)* 1.8);
+    letter-spacing: calc(var(--index) / 7.5);
+}
+
+
+.textcols {
+    text-transform: uppercase;
+    font-size: calc(var(--index)* 1.8);
+    letter-spacing: calc(var(--index) / 7.5);
+    z-index: 5;
+    white-space: nowrap;
+    font-size: 0;
+    position: absolute;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.textcols-item {
+    white-space: normal;
+    display: inline-block;
+    width: 70%;
+    vertical-align: top;
+    margin-right: 5%;
+    font-size: 14px;
+}
+.textcols .textcols-item:last-child {
+    margin-right: 0 ;
+}
