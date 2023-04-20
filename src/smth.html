@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Opd vsyakoe</title>
-
+    <link rel = "stylesheet" href="styles/magic.css">
     <link rel = "stylesheet" href="styles/main.css">
     <script src="Objects/app.js" defer></script>
 </head>
@@ -19,35 +19,267 @@
 <div id = "site" class = "content"></div>
 <script src = "./smth.js" type="module"> </script>
 
-    <header class="main-header">
-        <div class="layers">
-            <div class="layers_header">
-                <div class="layers_caption">Opd project</div>
-                <div class="layers_title">Сhoosing a profession</div>
-            </div>
-            <div class="layer layers_base" style="background-image: url(images/Back2.png);"></div>
-            <div class="layer layers_front" style="background-image: url(images/Back1.png);"></div>
+<header class="main-header">
+    <div class="layers">
+        <div class="layers_header">
+            <div class="layers_caption">Opd project</div>
+            <div class="layers_title">Сhoosing a profession</div>
         </div>
-    </header>
+        <div class="layer layers_base" style="background-image: url(images/Back2.png);"></div>
+        <div class="layer layers_front" style="background-image: url(images/Back1.png);"></div>
+    </div>
+</header>
 
-    <article class="main-article" style="background-image: url(images/BackArt.jpg);">
-        <div class="main-article_content">
-            <h2 class="main-article_header">Potom pridumaem</h2>
-            <div class="textcols">
-                <div class="textcols-item">
-                    <b>Текст первой колонки</b>
-                    <p>привет</p>
+<article id="podval" class="main-article" style="background-image: url(images/BackArt.jpg);">
+    <div class="window-professions">
+    <table class="textcols-item">
+        <tr>
+            <th><a href="#popup">Системный администратор</a></th>
+            <th><a href="#2popup">Веб-разработчик</a></th>
+            <th><a href="#3popup">Аналитик данных</a></th>
+        </tr>
+        <tr class="statistic">
+            <td><div class="statistic_color">СТАТИСТИКА</div></td>
+            <td><div class="statistic_color">СТАТИСТИКА</div></td>
+            <td><div class="statistic_color">СТАТИСТИКА</div></td>
+
+        </tr>
+    </table>
+    </div>
+    <div class="login_body">
+        <div class="login_header">
+            LOGIN
+        </div>
+        <div class="login_content">
+            <input type="text" placeholder="Введите ваш логин">
+            <input type="password" placeholder="Введите ваш пароль">
+            <input class="button" type="submit" value="Войти  ">
+            <div class="login_podval">Нет акаунта? <a class="login_a" href="#4popup">Регистрация</a> </div>
+        </div>
+    </div>
+    <div class="moder_body">
+        <div class="moder_header">
+            <div class="moder_header_content"> Модераторы
+            </div>
+        </div>
+        <div class="moder_content">
+            <form action="">
+                <select class="moder_list" size="4">
+                    <option>Best Igor</option>
+                    <option>Anton</option>
+                    <option>Anton</option>
+                    <option>Evgeniy</option>
+                    <option>Ilya</option>
+                    <option>Maksim</option>
+                </select>
+            </form>
+        </div>
+    </div>
+    <div class="list_body">
+        <div class="list_header">Качества</div>
+        <div class="list_content">
+            <form action="">
+                <select class="list_characteristics" size="4">
+                    <option>Самостоятельность</option>
+                    <option>Дисциплинированность</option>
+                    <option>Ответственность</option>
+                    <option>Трудолюбие</option>
+                    <option>Инициативность</option>
+                    <option>Самокритичность</option>
+                    <option>Предусмотрительность</option>
+                    <option>Экстернальность </option>
+                    <option>Интернальность</option>
+
+
+                </select>
+            </form>
+        </div>
+        <div class="list_bottom">
+            <a href="#5popup" class="link_characteristics">Посмотреть все качества</a>
+        </div>
+    </div>
+
+    <div id="popup" class="popup">
+        <div class="popup_body">
+            <div class="popup_content">
+                <a href="#podval" class="popup_close">X</a>
+                <div class="popup_title">Системный администратор
+                <div class="popup_text">Специалист широкого профиля, который отвечает за стабильное и безотказное функционирование ИТ-инфраструктуры, осуществляет мониторинг, проводит инвентаризацию, отвечает за безопасность пользователей, занимается сетями и т.д. Это многорукий и многоголовый бог ИТ-инфраструктуры, который берёт на себя обязанности по обеспечению всей ИТ-жизнедеятельности компании.
+                    + РЕЙТИНГ
                 </div>
-                <div class="textcols-item">
-                    <b>Текст второй колонки</b>
-
-                </div>
-                <div class="textcols-item">
-                    <b>Текст третей колонки</b>
-
                 </div>
             </div>
         </div>
-    </article>
+    </div>
+    <div id="2popup" class="popup">
+        <div class="popup_body">
+            <div class="popup_content">
+                <a href="#podval" class="popup_close">X</a>
+                <div class="popup_title">Веб-разработчик
+                <div class="popup_text">Специалист, который создаёт новые и поддерживает уже существующие сайты. Он помогает заказчику решить задачу оптимальным способом, пишет код, тестирует его и оценивает результаты.
+                    + РЕЙТИНГ
+
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="3popup" class="popup">
+        <div class="popup_body">
+            <div class="popup_content">
+                <a href="#podval" class="popup_close">X</a>
+                <div class="popup_title">Аналитик данных
+                <div class="popup_text">Специалист, который работает с данными: собирает их, обрабатывает, изучает и интерпретирует. Выводы, которые делает аналитик, помогают принимать решения в бизнесе, в научных исследованиях, в менеджменте и в других областях.
+                    + РЕЙТИНГ
+
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="4popup" class="popup">
+        <div class="popup_body">
+            <div class="regist_content">
+                <a href="#podval" class="popup_close">X</a>
+                <div class="login_header"> РЕГИСТРАЦИЯ
+                </div>
+                <input class="register_input" type="text" placeholder="Введите ваш логин">
+                <input class="register_input" type="password" placeholder="Введите пароль">
+                <input class="register_input" type="password" placeholder="Введите пароль еще раз">
+                <form action="moderator.html">
+                <input class="register_button" type="submit" value="Регистрация">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="5popup" class="popup">
+        <div class="popup_body">
+            <div class="popup_content">
+                <a href="#podval" class="popup_close">X</a>
+                <div class="popup_title"> Качества программиста
+                    <div class="popup_characteristics_text">- Глазомер динамический
+                        - Способность к различению фигуры
+                        -  Способность различать и опознавать замаскированные объекты.
+                        -  Способность к восприятию пространственного соотношения предметов.
+                        -  Точность и оценка направления на источник звука.
+                        -  Способность узнавать и различать ритмы
+                        -  Речевой слух
+                        -  Различение отрезков времени
+                         Способность к зрительным представлениям.
+                        -  Способность к пространственному воображению.
+                        -  Способность к образному представлению предметов, процессов и явлений.
+                        - Способность наглядно представлять себе новое явление, ранее, не встречающееся в опыте, или старое, но в новых условиях
+                        -  Способность к переводу образа в словесное описание
+                        -  Способность к воссозданию образа по словесному описанию
+                        - Аналитичность
+                        - Синтетичность
+                        - Транссонантность
+                        - Логичность
+                        - Креативность
+                        - Оперативность
+                        Объектные свойства мышления
+                        -  Предметность
+                        -  Образность
+                        -  Абстрактность
+                        -  Вербальность
+                        -  Калькулятивность
+                        Зрительная долговременная память
+                        -  на лица
+                        -  на образы предметного мира
+                        -  на условные обозначения
+                        -  на цифры, даты
+                        -  на слова и фразы
+                        -  на семантику текста
+                        Зрительная оперативная память
+                        -  на лица
+                        -  на образы предметного мира
+                        -  на условные обозначения
+                        -  на цифры,  даты
+                        -  на слова и фразы
+                        -  на семантику текста
+                        Слуховая долговременная память
+                        -  на голоса
+                        -  на цифры
+                        -  на условные сигналы
+                        -  на мелодии
+                        -  на семантику сообщений
+                        Слуховая оперативная память
+                        -  на цифры
+                        -  на семантику сообщений
+                        Кинестетическая память
+                        -  на простые движения
+                        -  на сложные движения
+                        -  на положение и перемещение тела в пространстве
+                        Тактильная память
+                        Обонятельная память
+                        Вкусовая память
+                        -  Энергичность, витальность
+                        -  Умственная работоспособность
+                        -  Физическая работоспособность
+                        -  Нервно-эмоциональная устойчивость, выносливость по отношению к эмоциональным нагрузкам
+                        Свойства ощущений
+                        -  Острота зрения
+                        -  Адаптация зрения к темноте, свету
+                        -  Контрастная чувствительность монохроматического зрения
+                        -  Цветовая дифференциальная чувствительность
+                        -  Устойчивость зрительной чувствительности во времени
+                        -  Острота слуха
+                        -  Контрастная чувствительность слуха
+                        - Слуховая дифференциальная чувствительность
+                        -  Переносимость длительно действующего звукового раздражителя
+                        -  Чувствительность пальцев
+                        -  Вибрационная чувствительность
+                        -  Мышечно-суставная чувствительность усилий или сопротивления
+                        -  Ощущение равновесия
+                        -  Ощущение ускорения
+                        -  Обонятельная чувствительность
+                        -  Способность узнавать и различать вкусовые ощущения
+                        Свойства внимания
+                        -  Объем внимания
+                        -  Концентрированность внимания
+                        -  Устойчивость внимания во времени
+                        -  Переключаемость внимания
+                        -  Способность к распределению внимания между несколькими объектами или видами деятельности
+                        -   Помехоустойчивость внимания
+                        - Способность подмечать изменения в окружающей обстановке, не сосредотачивая сознательно на них внимание
+                        -  Умение подмечать незначительные изменения в исследуемом объекте, в показаниях приборов
+                        Свойства психомоторики
+                        -  Способность к выполнению плавных соразмерных движений
+                        -  Координация движений ведущей руки.
+                        -  Координация движений обеих рук.
+                        -  Координация движений рук и ног.
+                        -  Координация работы кистей рук и пальцев.
+                        -  Твердость руки, устойчивость кистей рук
+                        -  Умение быстро записывать
+                        -  Красивый почерк
+                        -  Физическая сила.
+                        -  Способность к быстрой выработке сенсомоторных навыков
+                        -  Способность к быстрой перестройке сенсомоторных навыков
+                        -  Пластичность и выразительность движений
+                        Свойства речи
+                        -  Отсутствие дефектов речи, хорошая дикция.
+                        -  Способность речевого аппарата к интенсивной и длительной работе.
+                        -  Способность к изменению тембра.
+                        -  Способность к изменению силы звучания.
+                        -  Переносимость динамических физических нагрузок
+                        -  Переносимость статических физических нагрузок
+                        -  Быстрый переход из состояния покоя к интенсивной работе
+                        -  Сохранение работоспособности при недостатке сна
+                        -  Сохранение работоспособности при развивающемся утомлении
+                        -  Сохранение бдительности в условиях однообразной деятельности
+                        -  Сохранение бдительности в режиме ожидания
+                        -  Сохранение работоспособности в некомфортных температурных условиях
+                        -  Сохранение работоспособности в условиях знакопеременных перегрузок
+                        -   Сохранение работоспособности в условиях воздействия вибрации
+
+                        + РЕЙТИНГ
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</article>
 </body>
 </html>

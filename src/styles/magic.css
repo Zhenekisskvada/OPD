@@ -1,0 +1,81 @@
+.textcols-item {
+	width: 100%;
+  border-spacing: 7px 11px ;
+  position: absolute;
+  top: 10px;
+  font-size: 17px;
+
+}
+
+a:hover{
+    color: #d0c5f3;
+}
+a{
+    color: white;
+    text-shadow: #644bb9 2px 5px;
+    text-decoration: none;
+}
+
+tr{
+    height:10px;
+}
+td{
+    color: rgba(0, 0, 0, 0.8);
+    border-bottom: 4px #a1903b solid;
+
+}
+
+.textcols-item th {
+	padding: 20px;
+	background: lightblue;
+  color: black;
+}
+
+.textcols-item td {
+	padding: 20px;
+  background: green;
+  color: purple;
+}
+
+.know{
+	position: absolute;
+	top: 40%;
+	font-size: 40px;
+	background-color: brown;
+}
+
+.pic{
+	position: absolute;
+  left: 29%;
+	top: 25%;
+	height: 520px;
+	width: 1000px;
+}
+
+.size-opinion{
+	position: absolute;
+  left: 33%;
+  bottom: 80px;
+  font-size: 50px;
+  color: blue;
+	background-color: black;
+}
+
+.name{
+	position: absolute;
+  left: 70%;
+  bottom: 80px;
+  font-size: 46px;
+}
+
+.opinion{
+	position: absolute;
+  left: 33%;
+	top: 10px;
+	font-size: 150px;
+	color: black;
+}
+
+.background {
+	 background-size: cover;
+}
