@@ -63,8 +63,6 @@ body {
     will-change: transform;
 
 }
-.layers_base{
-}
 
 .layers_base{
     transform: translate3d(0, calc(var(--scrollTop)/1.6), 0);
@@ -152,7 +150,7 @@ body {
 .statistic_color{
     font-size: 20px;
     font-weight: bold;
-    color: #8856e1;
+    color: #202020;
 }
 .popup{
     position: fixed;
@@ -231,10 +229,7 @@ body {
     text-align: center;
     font-weight: bold;
 }
-.login_a{
-    color: #a1903b;
-    text-shadow: none;
-}
+
 input{
     margin-left: 2em;
     margin-top: 1.8em;

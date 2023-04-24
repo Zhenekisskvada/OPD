@@ -10,6 +10,7 @@
 a:hover{
     color: #d0c5f3;
 }
+
 a{
     color: white;
     text-shadow: #644bb9 2px 5px;
@@ -19,6 +20,7 @@ a{
 tr{
     height:10px;
 }
+
 td{
     color: rgba(0, 0, 0, 0.8);
     border-bottom: 4px #a1903b solid;
@@ -39,17 +41,26 @@ td{
 
 .know{
 	position: absolute;
-	top: 40%;
+	top: 10%;
 	font-size: 40px;
-	background-color: brown;
+
+  background: transparent;
+  backdrop-filter: blur(15px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  width: 600px;
+  height: 70px;
+  border: 2px solid rgba(255,255,255,0.5);
 }
 
 .pic{
 	position: absolute;
-  left: 29%;
-	top: 25%;
-	height: 520px;
-	width: 1000px;
+  left: 96%;
+	top: 2%;
+	height: 50px;
+	width: 50px;
 }
 
 .size-opinion{
@@ -69,10 +80,10 @@ td{
 }
 
 .opinion{
-	position: absolute;
+  text-align: center;
   left: 33%;
 	top: 10px;
-	font-size: 150px;
+	font-size: 100px;
 	color: black;
 }
 
