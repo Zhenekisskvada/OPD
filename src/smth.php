@@ -35,30 +35,65 @@
                 <th><a href="#3popup">Аналитик данных</a></th>
             </tr>
 
+            <?php
+        if($_COOKIE['user'] != ''):
+        ?>
+            <tr class="statistic">
+                <td><div class="statistic_color"><a href="evaluation/characteristics.html">Установить качества</a></div></td>
+                <td><div class="statistic_color"><a href="evaluation/characteristics2.html">Установить качества</a></div></td>
+                <td><div class="statistic_color"><a href="evaluation/characteristics3.html">Установить качества</a></div></td>
+            </tr>
+            <p class="statistic1"><a href="statistic.html">Посмотреть статистику</a></p>
+            <?php else: ?>
+            <tr class="statistic">
+                <td><div class="statistic_color">СТАТИСТИКА</div></td>
+                <td><div class="statistic_color">СТАТИСТИКА</div></td>
+                <td><div class="statistic_color">СТАТИСТИКА</div></td>
+
+            </tr>
+            <?php endif;?>
         </table>
     </div>
+
+
+        </table>
+    </div>
+    <?php
+    if($_COOKIE['user'] == ''):
+    ?>
     <div class="login_body">
         <div class="login_header">
             LOGIN
         </div>
         <div class="login_content">
-            <input type="text" placeholder="Введите ваш логин">
-            <input type="password" placeholder="Введите ваш пароль">
-
-
-
-
-            <div class="button_login">
-                <a class="button" type="button" href="moderator.html">Войти</a>
-            </div>
-
-
-            <!--<input class="button" href="moderator.html" type="submit" value="Войти  "> -->
-
-
+            <form action="phpfiles/auth.php" method="post">
+                <input type="text" name="login_username" placeholder="Введите ваш логин">
+                <input type="password" name="login_password" placeholder="Введите ваш пароль">
+                <input class="button" type="submit" value="Войти">
+            </form>
             <div class="login_podval">Нет акаунта? <a class="login_a" href="#4popup">Регистрация</a> </div>
         </div>
     </div>
+
+    <div class="button_login">
+        <a class="button" type="button" href="moderator.html">Войти</a>
+        <a class="button" type="button" href="src/moderator.php">Войти</a>
+    </div>
+
+    <?php else: ?>
+    <div class="login_body">
+        <div class="login_header">
+            Добро пожаловать!
+        </div>
+        <div class="login_content">
+            <p>Вы авторизованы под именем <?=$_COOKIE['user']?> </p>
+            <p>Чтобы выйти, нажмите <a href="phpfiles/exit.php">здесь</a>.</p>
+            <p>Чтобы перейти в меню эксперта, нажмите <a href="moderator.php">здесь</a>.</p>
+        </div>
+    </div>
+
+    <?php endif;?>
+
     <div class="moder_body">
         <div class="moder_header">
             <div class="moder_header_content"> Модераторы
@@ -122,16 +157,15 @@
                 <a href="#podval" class="popup_close">X</a>
                 <div class="login_header"> РЕГИСТРАЦИЯ
                 </div>
-                <input class="register_input" type="text" placeholder="Введите ваш логин">
-                <input class="register_input" type="password" placeholder="Введите пароль">
-                <input class="register_input" type="password" placeholder="Введите пароль еще раз">
-                <form action="moderator.html">
-                    <input class="register_button" type="submit" value="Регистрация">
-                </form>
+                    <form action="phpfiles/check.php" method="post">
+                        <input class="register_input" type="text" name="username" placeholder="Введите ваш логин">
+                        <input class="register_input" type="password" name="password" placeholder="Введите пароль">
+                        <input class="register_input" type="password" name="second_password" placeholder="Введите пароль еще раз">
+                        <input class="register_button" type="submit" value="Регистрация">
+                    </form>
             </div>
         </div>
     </div>
-
 
 </article>
 </body>
