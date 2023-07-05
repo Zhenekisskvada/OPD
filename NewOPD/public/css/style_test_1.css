@@ -1,0 +1,219 @@
+body {
+    margin: 0;
+    background-color: black;
+}
+.top {
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    background-color: black;
+    filter: invert(15%);
+    width: 100%;
+    height: 50px;
+    text-align: right;
+    z-index: 1;
+}
+.icon_menu {
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+}
+.icon_back {
+    transform: rotate(180deg);
+    margin-left: 10px;
+    width: 45px;
+    height: 45px;
+}
+.bg_img {
+    width: 100%;
+    background-image: url("/public/img/bg_img.jpg");
+
+}
+a, u {
+    text-decoration: none;
+}
+
+
+
+
+.test{
+    margin: 0 auto;
+    width: 90%;
+    height: 90vh;
+}
+.tester {
+    cursor: crosshair;
+    width: 100%;
+    height: 90vh;
+}
+.instruction {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    position: relative;
+    width: 1000px;
+    height: 70px;
+    z-index: 1;
+}
+.instruction::before {
+    content: "";
+    background-color: white;
+    background-size: cover;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    border-radius: 20px;
+    opacity: 0.2;
+}
+.text_instruction {
+    padding-top: 10px;
+    position: relative;
+    color: white;
+    font-size: 20pt;
+    font-family: 'Montserrat',Arial,sans-serif;
+    text-align: center;
+}
+.choosing_instruction {
+    display: none;
+    position: relative;
+    top: 1vh;
+    color: white;
+    font-size: 20pt;
+    font-family: 'Montserrat',Arial,sans-serif;
+    text-align: center;
+}
+.choosing_instruction {
+    display: none;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    width: 500px;
+    height: 40px;
+    z-index: 3;
+}
+.choosing_instruction::before {
+    content: "";
+    background-color: white;
+    background-size: cover;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    border-radius: 20px;
+    opacity: 0.2;
+}
+.text_choosing_instruction {
+    padding-top: 10px;
+    position: relative;
+    color: white;
+    font-size: 20pt;
+    font-family: 'Montserrat',Arial,sans-serif;
+    text-align: center;
+}
+.start_button {
+    width: 10vw;
+    background-color: #080808;
+    box-shadow: 1px 1px 2px 1px #888888;
+    color: #aaaaaa;
+    border: 2px solid #222222;
+    border-radius: 10px;
+    font-size: 24px;
+    font-family: 'Montserrat',Arial,sans-serif;
+    transition-duration: 200ms;
+    position: relative;
+    top: 50vh;
+    left: 45%;
+}
+.start_button:hover {
+    background-color: #202020;
+    box-shadow: 2px 2px 4px 2px #aaaaaa;
+}
+.start_button:active {
+    background-color: #404040;
+}
+.circle {
+    display: none;
+    height: 20vh;
+    width: 20vh;
+    background-color: midnightblue;
+    border: 4px solid #888888;
+    border-radius: 50%;
+    position: relative;
+    top: 40vh;
+    left: 90vh;
+    z-index: 1;
+}
+.result {
+    display: none;
+    padding-left: 10px;
+    position: relative;
+    top: 10vh;
+    color: white;
+    font-size: 20pt;
+    font-family: 'Montserrat',Arial,sans-serif;
+    text-align: center;
+}
+.restart_button {
+    display: none;
+    width: 10vw;
+    background-color: #080808;
+    box-shadow: 1px 1px 2px 1px #888888;
+    color: #aaaaaa;
+    border: 2px solid #222222;
+    border-radius: 10px;
+    font-size: 24px;
+    font-family: 'Montserrat',Arial,sans-serif;
+    text-align: center;
+    transition-duration: 200ms;
+    position: relative;
+    top: 60vh;
+    left: 45%;
+}
+.restart_button:hover {
+    background-color: #202020;
+    box-shadow: 2px 2px 4px 2px #aaaaaa;
+}
+.restart_button:active {
+    background-color: #404040;
+}
+
+.number_button {
+    display: none;
+    width: 18vw;
+    height: 32vh;
+    margin-left: 5vw;
+    position: relative;
+    background: linear-gradient(to bottom, black, #444444);
+    box-shadow: 1px 1px 2px 1px #888888;
+    color: #aaaaaa;
+    border: 2px solid #222222;
+    border-radius: 10px;
+    font-size: 32px;
+    font-family: 'Montserrat',Arial,sans-serif;
+    transition-duration: 200ms;
+    top: 50vh;
+    left: 24vw;
+}
+.number_button:hover {
+    background-color: #202020;
+    box-shadow: 2px 2px 4px 2px #aaaaaa;
+}
+.number_button:active {
+    background-color: #404040;
+}
+.iteration {
+    display: none;
+    margin-left: 80vw;
+    padding-top: 10px;
+    position: relative;
+    color: white;
+    font-size: 20pt;
+    font-family: 'Montserrat',Arial,sans-serif;
+    text-align: center;
+}

@@ -1,0 +1,366 @@
+body {
+    margin: 0;
+    background-color: black;
+}
+.top {
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    background-color: black;
+    filter: invert(15%);
+    width: 100%;
+    height: 50px;
+    text-align: right;
+    z-index: 1;
+}
+.icon_menu {
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+}
+.icon_back {
+    transform: rotate(180deg);
+    margin-left: 10px;
+    width: 45px;
+    height: 45px;
+}
+.bg_img {
+    width: 100%;
+    background-image: url("/public/img/bg_img.jpg");
+    background-position: center;
+    background-size: cover;
+}
+a, u {
+    text-decoration: none;
+}
+
+
+.choice {
+    height: 900px;
+}
+.title_text {
+    text-align: center;
+    height: 55px;
+    color: #ffffff;
+    font-size: 44px;
+    font-family: 'Montserrat',Arial,sans-serif;
+    line-height: 1.25;
+    font-weight: 700;
+}
+
+
+
+.boxes {
+    display: flex;
+    height: 500px;
+}
+.box {
+    display: block;
+    position: relative;
+    margin-top: 40px;
+    width: 320px;
+    height: 420px;
+    margin-left: 40px;
+    z-index: 1;
+}
+.box::before {
+    content: "";
+    background: linear-gradient(to bottom, black, white);
+    background-size: cover;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    border-radius: 20px;
+    opacity: 0.3;
+}
+.text_box {
+    margin-left: 20px;
+    width: 280px;
+    height: 60px;
+}
+.box_title {
+    color: white;
+    font-size: 20pt;
+    font-family: 'Montserrat',Arial,sans-serif;
+}
+.box_text {
+    margin-left: 20px;
+    width: 280px;
+    text-align: justify;
+    padding-top: 130px;
+    font-size: 12pt;
+    font-family: 'Montserrat',Arial,sans-serif;
+    position: relative;
+    color: white;
+}
+.box:hover {
+    background-image:url('https://static.tildacdn.com/tild3166-3564-4335-b831-333134626666/4_card_hover.svg');
+    border-radius: 20px;
+}
+
+
+.list_1 {
+    width: 640px;
+    height: 250px;
+    display: block;
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+}
+.list_2 {
+    width: 640px;
+    height: 400px;
+    display: block;
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+}
+.list_2::before {
+    content: "";
+    background-color: white;
+    background-size: cover;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    border-radius: 20px;
+    opacity: 0.3;
+}
+.list_1::before {
+    content: "";
+    background: white;
+    background-size: cover;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    border-radius: 20px;
+    opacity: 0.3;
+}
+.list_11 {
+    width: 640px;
+    height: 400px;
+    display: block;
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+}
+.list_11::before {
+    content: "";
+    background: white;
+    background-size: cover;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    border-radius: 20px;
+    opacity: 0.3;
+}
+.list_button {
+}
+
+
+.expert {
+    color: white;
+    margin-top: 15px;
+    padding-left: 20px;
+}
+.text {
+    color: white;
+    font-family: Roboto,Arial,sans-serif;
+    font-size: 11pt;
+    text-align: justify;
+    line-height: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.text1 {
+    color: white;
+    font-family: Roboto,Arial,sans-serif;
+    font-size: 11pt;
+    text-align: justify;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.prokrutka {
+    color: white;
+    padding-top: 20px;
+    padding-left: 20px;
+    width: 620px;
+    height: 380px;
+    display: block;
+    position: relative;
+    overflow: auto;
+}
+.sent {
+    margin-top: 20px;
+    position: relative;
+    left: 29%;
+    font-family: 'docs-Roboto', Helvetica, Arial, sans-serif;
+    font-size: 12pt;
+    color: white;
+    background-color: grey;
+    width: 150px;
+    height: 40px;
+    border: 0;
+    border-radius: 20px;
+    padding: 10px 15px;
+}
+.sent:hover {
+    background-image:url('https://static.tildacdn.com/tild3166-3564-4335-b831-333134626666/4_card_hover.svg');
+}
+
+.container {
+    display: block;
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-family: Roboto,Arial,sans-serif;
+    font-size: 11pt;
+    user-select: none;
+}
+
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: #eee;
+}
+
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+.container input:checked ~ .checkmark {
+    background-color: black;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.container .checkmark:after {
+    left: 5.5px;
+    top: 3px;
+    width: 2px;
+    height: 4px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.table_1 {
+    margin-left: 20px;
+    width: 500px;
+    height: 250px;
+}
+table, tr, td {
+    color: white;
+    border-collapse: collapse;
+    border: 1px solid white;
+}
+tr:first-child td {
+    font-weight: bold;
+    font-size: 14px;
+}
+td {
+    text-align: center;
+    font-size: 14px;
+}
+.td_1{
+    text-align: left;
+    font-size: 14px;
+}
+.text_title {
+    position: relative;
+    font-size: 24pt;
+    font-family: 'docs-Roboto', Helvetica, Arial, sans-serif;
+    letter-spacing: 0;
+    padding-top: 20px;
+    padding-left: 20px;
+    color: white;
+}
+.choice_pvk{
+    display: flex;
+}
+.input_pvk{
+    position: relative;
+    width: 50px;
+}
+.inputbox{
+    position: relative;
+    left: 20px;
+    width: 25px;
+    padding-top: 20px;
+}
+
+.pulse_input {
+    position: relative;
+    left: 45px;
+    width: 256px;
+    padding-top: 20px;
+}
+
+.pulse_input input{
+    width: 256px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #fff;
+    border-bottom: 1px solid #fff;
+}
+
+.inputbox input {
+    width: 35px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #fff;
+    border-bottom: 1px solid #fff;
+}
+.popit {
+    position: relative;
+    text-align: center;
+}
+.text_popit {
+    display: block;
+    font-size: 20pt;
+    font-family: 'docs-Roboto', Helvetica, Arial, sans-serif;
+    letter-spacing: 0;
+    padding-top: 20px;
+    padding-left: 20px;
+    color: white;
+}
+.pp {
+    padding-top: 10px;
+    text-align: center;
+}
