@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/style_test_1.css">
+    <title>Document</title>
+</head>
+<body>
+<div id="bg" class="bg_img">
+    <div class="top">
+        <a href="/tests_lab2">
+            <img class="icon_back" src="/public/img/back.png">
+        </a>
+        <a href="/login">
+            <img class="icon_menu" src="/public/img/menu.png">
+        </a>
+    </div>
+    <div class="tester">
+        <div id='Instruction' class="instruction text_instruction">
+            Этот тест считывает скорость реакции на световой сигнал. Ваша цель - нажать на круг как только он поменяет свой цвет.
+        </div>
+        <div id='Iteration' class="iteration"></div>
+        <button id='Start_button' class="start_button" name="start" onclick="start_test()">Начать</button>
+        <div id='Circle1' class="circle" onclick="onAnswer('Circle1')"></div>
+        <div id='Circle2' class="circle" onclick="onAnswer('Circle2')"></div>
+        <div id='Circle3' class="circle" onclick="onAnswer('Circle3')"></div>
+        <div id='Circle4' class="circle" onclick="onAnswer('Circle4')"></div>
+        <div id='Result' class="result"></div>
+        <div id='Final Result' class="result"></div>
+        <a href="/med_eye_test" class="restart_button" id='Retry'>Заново</a>
+    </div>
+</div>
+<script src="/public/libs/CookieManager.js"></script>
+<script src="/public/libs/tests/med_eye_test.js"></script>
+</body>
+</html>

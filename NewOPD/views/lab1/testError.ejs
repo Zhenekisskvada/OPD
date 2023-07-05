@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/style_lab.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="bg_img_stat">
+        <div class="top">
+            <a href="/lab1">
+                <img class="icon_back_stat" src="public/img/back.png">
+            </a>
+            <a href="/login">
+                <img class="icon_menu" src="public/img/menu.png">
+            </a>
+        </div>
+        <div class="choice_stat">
+            <p class="title_text">
+                <%= user_name %>, вы уже проходили это тест
+            </p>
+
+            <p class="text2">
+                Тут вы можете посмотреть свой выбор (также доступно в личном кабинете)
+            </p>
+
+            <div class="list">
+                <div class="list_3">
+                    <p class="text_title">Frontend - разработчик</p>
+                    <table class="table_1">
+                        <% if (FE.length !== 0) { %>
+                            <tr class="table">
+                                <td>№</td>
+                                <td>Профессиональное качество</td>
+                            </tr>
+                            <% for(let i=0; i < FE.length; i++) { %>
+                                <tr>
+                                    <td><%= (i+1) %></td>
+                                    <td class="td_1"><%= FE[i] %></td>
+                                </tr>
+                            <% } %>
+                        <% } else { %>
+                            <p class="text2">Вы еще не прошли тестирование</p>
+                        <% } %>
+                    </table>
+                </div>
+                <div class="list_3">
+                    <p class="text_title">Data Scientist</p>
+                    <table class="table_1">
+                        <% if (DS.length !== 0) { %>
+                            <tr class="table">
+                                <td>№</td>
+                                <td>Профессиональное качество</td>
+                            </tr>
+                            <% for(let i=0; i < DS.length; i++) { %>
+                                <tr>
+                                    <td><%= (i+1) %></td>
+                                    <td class="td_1"><%= DS[i] %></td>
+                                </tr>
+                            <% } %>
+                        <% } else { %>
+                            <p class="text2">Вы еще не прошли тестирование</p>
+                        <% } %>
+                    </table>
+                </div>
+            </div>
+            <div class="list_black">
+                <div class="list_3">
+                    <p class="text_title">System Administrator</p>
+                    <table class="table_1">
+                        <% if (SA.length !== 0) { %>
+                            <tr class="table">
+                                <td>№</td>
+                                <td>Профессиональное качество</td>
+                            </tr>
+                            <% for(let i=0; i < SA.length; i++) { %>
+                                <tr>
+                                    <td><%= (i+1) %></td>
+                                    <td class="td_1"><%= SA[i] %></td>
+                                </tr>
+                            <% } %>
+                        <% } else { %>
+                            <p class="text2">Вы еще не прошли тестирование</p>
+                        <% } %>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

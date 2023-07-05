@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/style_lab1.css">
+    <title>Document</title>
+</head>
+<body>
+<div class="bg_img">
+    <div class="top">
+        <a href="/desc_sysadmin">
+            <img class="icon_back" src="public/img/back.png">
+        </a>
+        <a href="/login">
+            <img class="icon_menu" src="public/img/menu.png">
+        </a>
+    </div>
+    <div class="choice">
+        <div class="popit">
+            <a class="title_text">
+                System Administrator
+            </a>
+        </div>
+        <form method="post" action="/add">
+            <div class="list_1">
+                <p class="text">
+                    System Administrator — это работник, должностные обязанности которого подразумевают <b>обеспечение штатной работы парка компьютерной техники</b>, сети и программного обеспечения. Зачастую системному администратору вменяется обеспечение информационной безопасности в организации.
+                </p>
+                <p class="text">
+                    Выберите ( 5 - 10 ) наиболее подходящих профессионально
+                    важных качеств для данной профессии из списка.
+                </p>
+                <p class="expert">
+                    <label class="container">Эксперт в данной области<input name="specialist_f" type="checkbox"><span class="checkmark"></span></label>
+                </p>
+            </div>
+            <div class="list_2">
+                <p class="prokrutka">
+                    <label id="container" class="container">Готовность к защите Родины с оружием в руках<input name="a1" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Военно-профессиональная направленность<input name="a2" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Прямые внутренние мотивы военно-профессиональной деятельности<input name="a3" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Стремление к профессиональному совершенству<input name="a4" type="checkbox" onclick="box(this)"> <span class="checkmark"></span></label>
+                    <label id="container" class="container">Адекватная самооценка<input name="a5" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Самостоятельность<input name="a6" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Пунктуальность<input name="a7" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Дисциплинированность<input name="a8" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Аккуратность в работе<input name="a9" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Организованность<input name="a10" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Старательность<input name="a11" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Ответственность<input name="a12" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Трудолюбие<input name="a13" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Инициативность<input name="a14" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Самокритичность<input name="a15" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Оптимизм<input name="a16" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Самообладание<input name="a17" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Самоконтроль<input name="a18" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Предусмотрительность<input name="a19" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Фрустрационная толерантность<input name="a20" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Самомобилизующийся тип реакции на препятствия<input name="a21" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Интернальность<input name="a22" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Экстернальность<input name="a23" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Интрапунитивность<input name="a24" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Экстрапунитивность<input name="a25" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность планировать свою деятельность во времени<input name="a26" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность организовывать свою деятельность в условиях большого потока информации<input name="a27" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность брать на себя ответственность за принимаемые решения<input name="a28" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность принимать решение в нестандартных ситуациях<input name="a29" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность рационально действовать в экстремальных ситуациях<input name="a30" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность эффективно действовать в условиях дефицита времени<input name="a31" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность переносить неприятные ощущения<input name="a32" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность аргументировано отстаивать свое мнение<input name="a33" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность к переключениям с одной деятельности на другую<input name="a34" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность преодолевать страх<input name="a35" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Решительность<input name="a36" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Сильная воля<input name="a37" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Смелость<input name="a38" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Чувство долга<input name="a39" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Честность<input name="a40" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Порядочность<input name="a41" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Товарищество<input name="a42" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Зрительная оценка размеров предметов<input name="a43" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Зрительное восприятие расстояний между предметами<input name="a44" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность оценивать направление и скорость движения предмета<input name="a45" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность к различению фигур<input name="a46" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность различать и опознавать замаскированные объекты<input name="a47" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность к восприятию пространственного соотношения предметов<input name="a48" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Точность и оценка направления на источник звука<input name="a49" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность узнавать и различать ритмы<input name="a50" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Речевой слух<input name="a51" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Различение отрезков времени<input name="a52" type="checkbox"> onclick="box(this)"<span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность к распознаванию небольших отклонений по визуальным признакам<input name="a53" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность к распознаванию небольших отклонений по акустическим признакам<input name="a54" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность к распознаванию небольших отклонений по кинестетическим признакам<input name="a55" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность к зрительным представлениям<input name="a56" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность к пространственному воображению<input name="a57" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность к образному представлению предметов, процессов и явлений<input name="a58" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность наглядно представлять себе новое явление<input name="a59" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность к переводу образа в словесное описание<input name="a60" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность к воссозданию образа по словесному описанию<input name="a61" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Аналитичность<input name="a62" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Синтетичность<input name="a63" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Транссонантность<input name="a64" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Логичность<input name="a65" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Креативность<input name="a66" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Оперативность<input name="a67" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Предметность<input name="a68" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Образность<input name="a69" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Абстрактность<input name="a70" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Вербальность<input name="a71" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Калькулятивность<input name="a72" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Зрительная долговременная память на лица<input name="a73" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Зрительная долговременная память на образы предметного мира<input name="a74" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Зрительная долговременная память на условные обозначения <input name="a75" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Зрительная долговременная память на цифры, даты<input name="a76" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Зрительная долговременная память на слова и фразы<input name="a77" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Зрительная долговременная память на семантику текста<input name="a78" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Зрительная оперативная память на лица<input name="a79" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Зрительная оперативная память на образы предметного мира<input name="a80" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Зрительная оперативная память на условные обозначения<input name="a81" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Зрительная оперативная память на цифры, даты<input name="a82" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Зрительная оперативная память на слова и фразы<input name="a83" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Зрительная оперативная память на семантику текста<input name="a84" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Слуховая долговременная память на голоса<input name="a85" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Слуховая долговременная память на цифры<input name="a86" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Слуховая долговременная память на условные сигналы<input name="a87" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Слуховая долговременная память на мелодии<input name="a88" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Слуховая долговременная память на семантику сообщений<input name="a89" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Слуховая оперативная память на цифры<input name="a90" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Слуховая оперативная память на семантику сообщений<input name="a91" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Кинестетическая память на простые движения<input name="a92" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Кинестетическая память на сложные движения<input name="a93" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Кинестетическая память на положение и перемещение тела в пространстве<input name="a94" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Тактильная память<input name="a95" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Обонятельная память<input name="a96" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Вкусовая память<input name="a97" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Энергичность<input name="a98" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Умственная работоспособность<input name="a99" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Физическая работоспособность <input name="a100" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Нервно-эмоциональная устойчивость<input name="a101" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Острота зрения<input name="a102" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Адаптация зрения к темноте<input name="a103" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Контрастная чувствительность монохроматического зрения<input name="a104" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Цветовая дифференциальная чувствительность<input name="a105" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Устойчивость зрительной чувствительности во времени<input name="a106" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Острота слуха<input name="a107" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Контрастная чувствительность слуха<input name="a108" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Слуховая дифференциальная чувствительность<input name="a109" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Переносимость длительно действующего звукового раздражителя<input name="a110" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Чувствительность пальцев<input name="a111" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Вибрационная чувствительность<input name="a112" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Мышечно-суставная чувствительность усилий или сопротивления<input name="a113" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Ощущение равновесия<input name="a114" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Ощущение ускорения<input name="a115" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Обонятельная чувствительность<input name="a116" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность узнавать и различать вкусовые ощущения<input name="a117" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Объем внимания<input name="a118" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Концентрированность внимания<input name="a119" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Устойчивость внимания во времени<input name="a120" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Переключаемость внимания<input name="a121" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность к распределению внимания между несколькими объектами<input name="a122" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Помехоустойчивость внимания<input name="a123" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность подмечать изменения в окружающей обстановке<input name="a124" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Умение подмечать незначительные изменения в исследуемом объекте<input name="a125" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность реагировать на неожиданный зрительный сигнал<input name="a126" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность реагировать на неожиданный слуховой сигнал<input name="a127" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Согласованность движений с процессами восприятия<input name="a128" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность к сенсомоторному слежению за движущимся объектом<input name="a129" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность к выполнению мелких точных движений<input name="a130" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность к выполнению сложных двигательных действий<input name="a131" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность к выполнению плавных соразмерных движений<input name="a132" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Координация движений ведущей руки<input name="a133" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Координация движений обеих рук<input name="a134" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Координация движений рук и ног<input name="a135" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Координация работы кистей рук и пальцев<input name="a136" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Твердость руки<input name="a137" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Умение быстро записывать<input name="a138" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Красивый почерк<input name="a139" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Физическая сила<input name="a140" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность к быстрой выработке сенсомоторных навыков<input name="a141" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность к быстрой перестройке сенсомоторных навыков<input name="a142" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Пластичность и выразительность движений<input name="a143" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Отсутствие дефектов речи, хорошая дикция<input name="a144" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность речевого аппарата к интенсивной и длительной работе<input name="a145" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность к изменению тембра<input name="a146" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность к изменению силы звучания<input name="a147" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Переносимость динамических физических нагрузок<input name="a148" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Переносимость статических физических нагрузок<input name="a149" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Быстрый переход из состояния покоя к интенсивной работе<input name="a150" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Сохранение работоспособности при недостатке сна<input name="a151" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Сохранение работоспособности при развивающемся утомлении<input name="a152" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Сохранение бдительности в условиях однообразной деятельности<input name="a153" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Сохранение бдительности в режиме ожидания<input name="a154" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Сохранение работоспособности в некомфортных температурных условиях<input name="a155" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Сохранение работоспособности в условиях знакопеременных перегрузок<input name="a156" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Сохранение работоспособности в условиях воздействия вибрации<input name="a157" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Сохранение работоспособности в условиях воздействия разнонаправленных перегрузок<input name="a158" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Сохранение работоспособности в условиях барометрических колебаний<input name="a159" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Сохранение работоспособности в условиях пониженного парциального давления кислорода<input name="a160" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Сохранение работоспособности в условиях пониженного парциального давления углекислого газа<input name="a161" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Сохранение работоспособности в условиях ограничения возможностей удовлетворения базовых жизненных потребностей<input name="a162" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Сохранение работоспособности в разных природно-климатических условиях<input name="a163" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Способность переадаптироваться к новым средовым условиям<input name="a164" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Антропометрические характеристики<input name="a165" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Особенности телосложения<input name="a166" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Хорошее общее физическое развитие – выносливость, координированность, сила, быстрота<input name="a167" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                    <label id="container" class="container">Физическая подготовленность к воздействию неблагоприятных факторов профессиональной деятельности<input name="a168" type="checkbox" onclick="box(this)"><span class="checkmark"></span></label>
+                </p>
+            </div>
+            <div class="list_button">
+                <button type="submit" class="sent" onmousemove="next()">Далее</button>
+            </div>
+            <div class="pp">
+                <a id="popit" class="text_popit"></a>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    let popit = 0;
+    document.getElementById('popit').innerHTML = popit + '/10';
+    function box(x){
+        if (popit === 10){
+            if (!x.checked){
+                popit --;
+                document.getElementById('popit').innerHTML = popit + '/10';
+                return popit;
+            } else {
+                x.checked = false;
+                alert("Больше 10-ти нельзя!")
+            }
+        } else {
+            if (x.checked){
+                popit ++;
+                document.getElementById('popit').innerHTML = popit + '/10';
+                return popit;
+            } else {
+                popit --;
+                document.getElementById('popit').innerHTML = popit + '/10';
+                return popit;
+            }
+        }
+
+    }
+    function next(){
+        if (popit < 5){
+            alert("Выберите от 5 до 10 ПВК!")
+        }
+    }
+
+
+</script>
+</body>
+</html>

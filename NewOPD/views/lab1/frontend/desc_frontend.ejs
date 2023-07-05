@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/style_lab1.css">
+    <link rel="stylesheet" href="/public/css/style_lab.css">
+    <title>Document</title>
+</head>
+<body>
+<div class="bg_img">
+    <div class="top">
+        <a href="/lab1">
+            <img class="icon_back" src="public/img/back.png">
+        </a>
+        <a href="/login">
+            <img class="icon_menu" src="public/img/menu.png">
+        </a>
+    </div>
+    <div class="choice">
+        <p class="title_text">
+            Frontend - разработчик
+        </p>
+        <div class="list_11">
+            <p class="text">
+                Frontend-разработчик — это специалист, который создает пользовательские интерфейсы. Он отвечает за всю внешнюю часть сайта или приложения, с которой взаимодействуют люди: меню, карточки товаров в интернет-магазине, кнопки, формы обратной связи. Благодаря качественной работе фронтенд-разработчика появляются быстрые и удобные сайты.
+            </p>
+            <table class="table_1">
+                <tr class="table">
+                    <td>№</td>
+                    <td>Профессиональное качество</td>
+                    <td>Популярность</td>
+                </tr>
+                <% if (frontEnd.length !== 0) {%>
+                <% for(let i=0; i<5; i++) { %>
+                    <tr>
+                        <td><%= (i+1) %></td>
+                        <td class="td_1"><%= frontEnd[i][0] %></td>
+                        <td><%= frontEnd[i][1] %></td>
+                    </tr>
+                <% } %>
+                <% } else {%>
+                <tr>
+                    <td colspan="3">Нет данных</td>
+                </tr>
+                <% } %>
+            </table>
+        </div>
+        <div class="list_button">
+            <a href="/frontend">
+                <button class="sent" onclick="">Пройти опрос</button>
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

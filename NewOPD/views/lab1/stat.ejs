@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/style_lab.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="bg_img_stat">
+        <div class="top">
+            <a href="/lab1">
+                <img class="icon_back_stat" src="public/img/back.png">
+            </a>
+            <a href="/login">
+                <img class="icon_menu" src="public/img/menu.png">
+            </a>
+        </div>
+        <div class="choice_stat">
+            <p class="title_text">
+                Общая статистика
+            </p>
+            <div class="list">
+                <div class="list_3">
+                    <p class="text_title">Frontend - разработчик</p>
+                    <table class="table_1">
+                        <% if (frontEnd.length !== 0) { %>
+                            <tr class="table">
+                                <td>№</td>
+                                <td>Профессиональное качество</td>
+                                <td>Популярность</td>
+                            </tr>
+                            <% for(let i=0; i<frontEnd.length; i++) { %>
+                                <tr>
+                                    <td><%= (i+1) %></td>
+                                    <td class="td_1"><%= frontEnd[i][0] %></td>
+                                    <td><%= frontEnd[i][1] %></td>
+                                </tr>
+                            <% } %>
+                        <% } else { %>
+                            <p class="text2">Результатов пока нет</p>
+                        <% } %>
+                    </table>
+                </div>
+                <div class="list_3">
+                    <p class="text_title">Data Scientist</p>
+                    <table class="table_1">
+                        <% if (dataScience.length !== 0) { %>
+                            <tr class="table">
+                                <td>№</td>
+                                <td>Профессиональное качество</td>
+                                <td>Популярность</td>
+                            </tr>
+                            <% for(let i=0; i<dataScience.length; i++) { %>
+                                <tr>
+                                    <td><%= (i+1) %></td>
+                                    <td class="td_1"><%= dataScience[i][0] %></td>
+                                    <td><%= dataScience[i][1] %></td>
+                                </tr>
+                            <% } %>
+                        <% } else { %>
+                            <p class="text2">Результатов пока нет</p>
+                        <% } %>
+                    </table>
+                </div>
+            </div>
+            <div class="list">
+                <div class="list_3">
+                    <p class="text_title">System Administrator</p>
+                    <table class="table_1">
+                        <% if (sysAdmin.length !== 0) { %>
+                            <tr class="table">
+                                <td>№</td>
+                                <td>Профессиональное качество</td>
+                                <td>Популярность</td>
+                            </tr>
+                            <% for(let i=0; i<sysAdmin.length; i++) { %>
+                                <tr>
+                                    <td><%= (i+1) %></td>
+                                    <td class="td_1"><%= sysAdmin[i][0] %></td>
+                                    <td><%= sysAdmin[i][1] %></td>
+                                </tr>
+                            <% } %>
+                        <% } else { %>
+                            <p class="text2">Результатов пока нет</p>
+                        <% } %>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

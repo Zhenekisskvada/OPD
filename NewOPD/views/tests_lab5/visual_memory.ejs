@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/style_test_4.css">
+    <title>Document</title>
+</head>
+<body>
+<div id="bg" class="bg_img">
+    <div class="top">
+        <a href="/tests_lab5">
+            <img class="icon_back" src="/public/img/back.png">
+        </a>
+        <a href="/login">
+            <img class="icon_menu" src="/public/img/menu.png">
+        </a>
+    </div>
+    <div id ='visual_memory' class="tester">
+        <div id='Instruction' class="instruction text_instruction">
+            Этот тест оценивает вашу визуальную память. Вам необходимо запомнить какие ячейки загорелись и кликнуть на них.
+        </div>
+        <button id='Start_button' class="start_button" name="start" onclick="start_test()">Начать</button>
+        <div id="Choosing_instruction" class="choosing_instruction text_choosing_instruction"></div>
+        <div id="Choosing_img" class="choosing_instruction text_choosing_instruction" style="background-color: white; width: 5vh; height: 5vh; left: 48vw"></div>
+        <div id='Final Result' class="result"></div>
+        <div id='Scene' class="scene" style="top: 6vh">
+            <div class="cell" id="1" onclick="cell(1)"></div>
+            <div class="cell" id="2" onclick="cell(2)"></div>
+            <div class="cell" id="3" onclick="cell(3)"></div>
+            <div class="cell" id="4" onclick="cell(4)"></div>
+            <div class="cell" id="5" onclick="cell(5)"></div>
+            <div class="cell" id="6" onclick="cell(6)"></div>
+            <div class="cell" id="7" onclick="cell(7)"></div>
+            <div class="cell" id="8" onclick="cell(8)"></div>
+            <div class="cell" id="9" onclick="cell(9)"></div>
+            <div class="cell" id="10" onclick="cell(10)"></div>
+            <div class="cell" id="11" onclick="cell(11)"></div>
+            <div class="cell" id="12" onclick="cell(12)"></div>
+            <div class="cell" id="13" onclick="cell(13)"></div>
+            <div class="cell" id="14" onclick="cell(14)"></div>
+            <div class="cell" id="15" onclick="cell(15)"></div>
+            <div class="cell" id="16" onclick="cell(16)"></div>
+            <div class="cell" id="17" onclick="cell(17)"></div>
+            <div class="cell" id="18" onclick="cell(18)"></div>
+            <div class="cell" id="19" onclick="cell(19)"></div>
+            <div class="cell" id="20" onclick="cell(20)"></div>
+            <div class="cell" id="21" onclick="cell(21)"></div>
+            <div class="cell" id="22" onclick="cell(22)"></div>
+            <div class="cell" id="23" onclick="cell(23)"></div>
+            <div class="cell" id="24" onclick="cell(24)"></div>
+            <div class="cell" id="25" onclick="cell(25)"></div>
+            <div class="cell" id="26" onclick="cell(26)"></div>
+            <div class="cell" id="27" onclick="cell(27)"></div>
+            <div class="cell" id="28" onclick="cell(28)"></div>
+            <div class="cell" id="29" onclick="cell(29)"></div>
+            <div class="cell" id="30" onclick="cell(30)"></div>
+            <div class="cell" id="31" onclick="cell(31)"></div>
+            <div class="cell" id="32" onclick="cell(32)"></div>
+            <div class="cell" id="33" onclick="cell(33)"></div>
+            <div class="cell" id="34" onclick="cell(34)"></div>
+            <div class="cell" id="35" onclick="cell(35)"></div>
+            <div class="cell" id="36" onclick="cell(36)"></div>
+            <div class="cell" id="37" onclick="cell(37)"></div>
+            <div class="cell" id="38" onclick="cell(38)"></div>
+            <div class="cell" id="39" onclick="cell(39)"></div>
+            <div class="cell" id="40" onclick="cell(40)"></div>
+            <div class="cell" id="41" onclick="cell(41)"></div>
+            <div class="cell" id="42" onclick="cell(42)"></div>
+            <div class="cell" id="43" onclick="cell(43)"></div>
+            <div class="cell" id="44" onclick="cell(44)"></div>
+            <div class="cell" id="45" onclick="cell(45)"></div>
+            <div class="cell" id="46" onclick="cell(46)"></div>
+            <div class="cell" id="47" onclick="cell(47)"></div>
+            <div class="cell" id="48" onclick="cell(48)"></div>
+            <div class="cell" id="49" onclick="cell(49)"></div>
+            <div class="cell" id="50" onclick="cell(50)"></div>
+            <div class="cell" id="51" onclick="cell(51)"></div>
+            <div class="cell" id="52" onclick="cell(52)"></div>
+            <div class="cell" id="53" onclick="cell(53)"></div>
+            <div class="cell" id="54" onclick="cell(54)"></div>
+            <div class="cell" id="55" onclick="cell(55)"></div>
+            <div class="cell" id="56" onclick="cell(56)"></div>
+            <div class="cell" id="57" onclick="cell(57)"></div>
+            <div class="cell" id="58" onclick="cell(58)"></div>
+            <div class="cell" id="59" onclick="cell(59)"></div>
+            <div class="cell" id="60" onclick="cell(60)"></div>
+            <div class="cell" id="61" onclick="cell(61)"></div>
+            <div class="cell" id="62" onclick="cell(62)"></div>
+            <div class="cell" id="63" onclick="cell(63)"></div>
+            <div class="cell" id="64" onclick="cell(64)"></div>
+
+        </div>
+        <button id='Finish_button' class="restart_button" name="finish" onclick="finish_test()" style="top: 10vh">Готово</button>
+        <a href="/visual_memory" class="restart_button" id='Retry'>Заново</a>
+    </div>
+</div>
+<script src="/public/libs/CookieManager.js"></script>
+<script src="/public/libs/tests/visual_memory.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/style_lab1.css">
+    <title>Document</title>
+</head>
+<body>
+
+<div class="bg_img">
+    <div class="top">
+        <a href="/lab1">
+            <img class="icon_back" src="public/img/back.png">
+        </a>
+        <a href="/login">
+            <img class="icon_menu" src="public/img/menu.png">
+        </a>
+    </div>
+    <div class="choice">
+        <form method="post" action="/pulse_start">
+            <div class="list_11">
+                <p class="text_title">Начало тестирования</p>
+                <p class="text1">Пожалуйста, проведите измерение своего пульса и введите значение в поле ниже:</p>
+
+                <div class="pulse_input">
+                    <input type="number" name="pulse" required placeholder="Введите значение пульса">
+                </div>
+
+            </div>
+            <div class="list_button">
+                <button class="sent" onclick="">Далее</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

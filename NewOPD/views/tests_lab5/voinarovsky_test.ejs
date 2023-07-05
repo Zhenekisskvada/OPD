@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/style_test_4.css" id="stylesheet">
+    <link href="/public/libs/itc-slider/itc-slider.css" rel="stylesheet" id="slidercss">
+    <script src="/public/libs/itc-slider/itc-slider.js" defer></script>
+    <title>Тест Войнаровского</title>
+</head>
+<body>
+<div id="bg" class="bg_img">
+    <div class="top">
+        <a href="/tests_lab5">
+            <img class="icon_back" src="/public/img/back.png">
+        </a>
+        <a href="/login">
+            <img class="icon_menu" src="/public/img/menu.png">
+        </a>
+    </div>
+    <div id ='voinarovsky_test' class="tester">
+        <div id='Instruction' class="instruction text_instruction">
+            Вам предлагается логическое суждение и несколько следствий; из трех следствий одно и только одно правильно.
+            Ваша задача выбрать его.
+        </div>
+        <button id='Start_button' class="start_button" name="start" onclick="start_test()">Начать</button>
+        <div id='Final Result' class="result"></div>
+        <div class="container-voinarovsky" id="container-voinarovsky">
+            <div class="itc-slider" data-slider="itc-slider" data-loop="false" data-autoplay="false">
+                <form id="test" name="test" action="http://index" method="post">
+                <div class="itc-slider__wrapper">
+                    <div class="itc-slider__items">
+                        <div class="itc-slider__item">
+                            <h3 class="question_title">Шмурдик боится как мышей, так и тараканов</h3>
+                            <label class="question"><input class="question_inp" type="radio" name="q1"><span class="question_span">Шмурдик не боится тараканов</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q1"><span class="question_span">Шмурдик боится мышей</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q1"><span class="question_span">Шмурдик боится мышей больше, чем тараканов, но и тараканов боится тоже</span></label>
+                        </div>
+                        <div class="itc-slider__item">
+                            <h3 class="question_title">Известно, что грымзик обязательно или полосат, или рогат, или то и другое вместе</h3>
+                            <label class="question"><input class="question_inp" type="radio" name="q2"><span class="question_span">грымзик не может быть безрогим</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q2"><span class="question_span">грымзик не может быть однотонным и безрогим одновременно</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q2"><span class="question_span">грымзик не может быть полосатым и безрогим одновременно</span></label>
+                        </div>
+                        <div class="itc-slider__item">
+                            <h3 class="question_title">Если запырку отравить, то она сразу начнет пускать пузыри</h3>
+                            <label class="question"><input class="question_inp" type="radio" name="q3"><span class="question_span">если запырка пускает пузыри, то она была отравлена</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q3"><span class="question_span">если запырку не отравить, то она не будет пускать пузыри</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q3"><span class="question_span">если запырка не пускает пузыри, то она не отравлена</span></label>
+                        </div>
+                        <div class="itc-slider__item">
+                            <h3 class="question_title">Все охлотушки умеют играть в шашки</h3>
+                            <label class="question"><input class="question_inp" type="radio" name="q4"><span class="question_span">не бывает охлотушек, которые не умеют играть в шашки</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q4"><span class="question_span">все, кто умеет играть в шашки, являются охлотушками</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q4"><span class="question_span">не бывает охлотушек, которые умеют играть в шашки</span></label>
+                        </div>
+                        <div class="itc-slider__item">
+                            <h3 class="question_title">Дубараторы бывают либо хорошими, либо плохими. Неправда, что этот дубаратор не плохой</h3>
+                            <label class="question"><input class="question_inp" type="radio" name="q5"><span class="question_span">этот дубаратор хороший</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q5"><span class="question_span">этот дубаратор средненький</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q5"><span class="question_span">этот дубаратор плохой</span></label>
+                        </div>
+                        <div class="itc-slider__item">
+                            <h3 class="question_title">В природе обнаружено более десятка тиалей. Все обнаруженные тиали сплошь красного цвета</h3>
+                            <label class="question"><input class="question_inp" type="radio" name="q6"><span class="question_span">по крайней мере некоторые из тиалей красного цвета</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q6"><span class="question_span">по крайней мере некоторые из тиалей зеленые</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q6"><span class="question_span">некоторые тиали (из тех, что уже обнаружены) могут оказаться не красными</span></label>
+                        </div>
+                        <div class="itc-slider__item">
+                            <h3 class="question_title">Существуют шакалы с больной мухропендией</h3>
+                            <label class="question"><input class="question_inp" type="radio" name="q7"><span class="question_span">не всякий шакал может похвастаться здоровой мухропендией</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q7"><span class="question_span">не всякий шакал может похвастаться больной мухропендией</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q7"><span class="question_span">существуют шакалы со здоровой мухропендией</span></label>
+                        </div>
+                        <div class="itc-slider__item">
+                            <h3 class="question_title">Неправда, что наша тумельница большая и круглая</h3>
+                            <label class="question"><input class="question_inp" type="radio" name="q8"><span class="question_span">наша тумельница маленькая и некруглая</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q8"><span class="question_span">наша тумельница маленькая, или некруглая, или то и другое вместе</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q8"><span class="question_span">наша тумельница маленькая, или некруглая, но не то и другое вместе</span></label>
+                        </div>
+                        <div class="itc-slider__item">
+                            <h3 class="question_title">Джон всегда либо урдит, либо мурлит</h3>
+                            <label class="question"><input class="question_inp" type="radio" name="q9"><span class="question_span">Джон иногда урдит</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q9"><span class="question_span">Джон иногда урдит, а иногда мурлит</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q9"><span class="question_span">Джон никогда не занимается одновременно и урдением, и мурлением</span></label>
+                        </div>
+                        <div class="itc-slider__item">
+                            <h3 class="question_title">Журналисты наврали, что бздыш болотный безграмотен и нахален</h3>
+                            <label class="question"><input class="question_inp" type="radio" name="q10"><span class="question_span">на самом деле бздыш болотный образован и тактичен</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q10"><span class="question_span">на самом деле бздыш болотный безграмотен, но не нахален</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q10"><span class="question_span">те журналисты солгали</span></label>
+                        </div>
+                        <div class="itc-slider__item">
+                            <h3 class="question_title">Если тряхнуть бурдылькой, то начнется стрельба. Бурдылькой тряхнули</h3>
+                            <label class="question"><input class="question_inp" type="radio" name="q11"><span class="question_span">стрельба уже началась</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q11"><span class="question_span">стрельба начнется когда-нибудь</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q11"><span class="question_span">стрельба начнется когда-нибудь или уже началась</span></label>
+                        </div>
+                        <div class="itc-slider__item">
+                            <h3 class="question_title">Если тряхнуть перпелькой, то немедленно начнется стрельба. За последний час стрельбы не было</h3>
+                            <label class="question"><input class="question_inp" type="radio" name="q12"><span class="question_span">в течение последнего часа перпелькой не трясли</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q12"><span class="question_span">в течение последнего часа перпелькой трясли</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q12"><span class="question_span">а нечего было трясти чем попало</span></label>
+                        </div>
+                        <div class="itc-slider__item">
+                            <h3 class="question_title">Огромный бутряк напугал деревенского старосту</h3>
+                            <label class="question"><input class="question_inp" type="radio" name="q13"><span class="question_span">старосте приснился ночной кошмар</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q13"><span class="question_span">староста попробовал некачественной выпивки</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q13"><span class="question_span">староста был напуган</span></label>
+                        </div>
+                        <div class="itc-slider__item">
+                            <h3 class="question_title">Если почесать угубка за ухом, он начнет довольно шипеть. Если угубок довольно зашипит, то молоко поблизости скиснет</h3>
+                            <label class="question"><input class="question_inp" type="radio" name="q14"><span class="question_span">если не чесать угубка за ухом, то молоко поблизости не скиснет</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q14"><span class="question_span">если почесать угубка за ухом, молоко поблизости скиснет</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q14"><span class="question_span">молоко вдалеке никогда не скисает от чесания угубков</span></label>
+                        </div>
+                        <div class="itc-slider__item">
+                            <h3 class="question_title">Всех, кто громко обуривает, обязательно съедают. Все ухмырки постоянно громко обуривают</h3>
+                            <label class="question"><input class="question_inp" type="radio" name="q15"><span class="question_span">все, кто громко обуривает,- ухмырки</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q15"><span class="question_span">всех ухмырков обязательно съедают</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q15"><span class="question_span">некоторых ухмырков не съедают</span></label>
+                        </div>
+                        <div class="itc-slider__item">
+                            <h3 class="question_title">В реках близ Тимуграда обитает и вобла, и щука</h3>
+                            <label class="question"><input class="question_inp" type="radio" name="q16"><span class="question_span">в реках близ Тимуграда не бывает воблы</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q16"><span class="question_span">в реках близ Тимуграда обитает щука</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q16"><span class="question_span">в реках близ Тимуграда обитает только вобла и щука</span></label>
+                        </div>
+                        <div class="itc-slider__item">
+                            <h3 class="question_title">Все пуфелки радуют умом или красотой, а иногда даже и тем, и другим</h3>
+                            <label class="question"><input class="question_inp" type="radio" name="q17"><span class="question_span">пуфелка не может быть глупой</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q17"><span class="question_span">не бывает глупых некрасивых пуфелок</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q17"><span class="question_span">не бывает умных красивых пуфелок</span></label>
+                        </div>
+                        <div class="itc-slider__item">
+                            <h3 class="question_title">Когда вы спите, вы всегда мухряете</h3>
+                            <label class="question"><input class="question_inp" type="radio" name="q18"><span class="question_span">если вы мухряете, значит, вы спите</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q18"><span class="question_span">если вы не спите, вы не мухряете</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q18"><span class="question_span">если вы не мухряете, значит, вы не спите</span></label>
+                        </div>
+                        <div class="itc-slider__item">
+                            <h3 class="question_title">Все болельщики любят ыгу</h3>
+                            <label class="question"><input class="question_inp" type="radio" name="q19"><span class="question_span">не бывает болельщиков, которые не любят ыгу</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q19"><span class="question_span">все, кто любит ыгу, болеет за кого-нибудь</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q19"><span class="question_span">не бывает болельщиков, которые любят ыгу</span></label>
+                        </div>
+                        <div class="itc-slider__item">
+                            <h3 class="question_title">Есть только два вида здунцов: красные и синие. Что касается этого конкретного здунца, то он оказался вовсе не синим</h3>
+                            <label class="question"><input class="question_inp" type="radio" name="q20"><span class="question_span">этот здунец синий</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q20"><span class="question_span">этот здунец синекрасный</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q20"><span class="question_span">этот здунец красный</span></label>
+                        </div>
+                        <div class="itc-slider__item">
+                            <h3 class="question_title">Найдено множество останков быдлозавров. Но все они очень плохо сохранились</h3>
+                            <label class="question"><input class="question_inp" type="radio" name="q21"><span class="question_span">некоторые останки быдлозавров очень плохо сохранились</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q21"><span class="question_span">по крайней мере некоторые останки быдлозавров в отличном состоянии</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q21"><span class="question_span">некоторые найденные останки быдлозавров сохранились хорошо</span></label>
+                        </div>
+                        <div class="itc-slider__item">
+                            <h3 class="question_title">Некоторые лапухондрии не стабильны</h3>
+                            <label class="question"><input class="question_inp" type="radio" name="q22"><span class="question_span">не всякая лапухондрия не стабильна</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q22"><span class="question_span">существуют стабильные лапухондрии</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q22"><span class="question_span">не всякая лапухондрия стабильна</span></label>
+                        </div>
+                        <div class="itc-slider__item">
+                            <h3 class="question_title">Говорили, что дукни и острые, и твердые. Оказывается, это вовсе не так</h3>
+                            <label class="question"><input class="question_inp" type="radio" name="q23"><span class="question_span">на самом деле дукни тупые и мягкие</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q23"><span class="question_span">на самом деле дукни тупые или мягкие или то и другое сразу</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q23"><span class="question_span">на самом деле дукни тупые или мягкие, но не то и другое сразу</span></label>
+                        </div>
+                        <div class="itc-slider__item">
+                            <h3 class="question_title">Кафля всегда либо бегает, либо дышит</h3>
+                            <label class="question"><input class="question_inp" type="radio" name="q24"><span class="question_span">Кафля дышит на бегу</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q24"><span class="question_span">Кафля не дышит стоя</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q24"><span class="question_span">Кафля не дышит на бегу</span></label>
+                        </div>
+                        <div class="itc-slider__item">
+                            <h3 class="question_title">Информация о том, что завтрашнее совещание будет посвящено альным утятам, оказалась ложной</h3>
+                            <label class="question"><input class="question_inp" type="radio" name="q25"><span class="question_span">информация оказалась ложной</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q25"><span class="question_span">совещание будет посвящено не утятам</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q25"><span class="question_span">совещание будет посвящено утятам, но вовсе не альным</span></label>
+                        </div>
+                        <div class="itc-slider__item">
+                            <h3 class="question_title">Если облить уузку водой, она испортится сразу же. Эта уузка не испорчена. Сейчас я оболью ее водой</h3>
+                            <label class="question"><input class="question_inp" type="radio" name="q26"><span class="question_span">не надо обижать уузку</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q26"><span class="question_span">уузка испортится</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q26"><span class="question_span">уузка не испортится</span></label>
+                        </div>
+                        <div class="itc-slider__item">
+                            <h3 class="question_title">Если облить уузку водой, она испортится сразу же. Эта уузка не была испорчена</h3>
+                            <label class="question"><input class="question_inp" type="radio" name="q27"><span class="question_span">уузку не обливали</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q27"><span class="question_span">уузку обливали</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q27"><span class="question_span">да отстаньте вы от уузки</span></label>
+                        </div>
+                        <div class="itc-slider__item">
+                            <h3 class="question_title">Вася бросил проходить этот тест, ответив только на 28 вопросов</h3>
+                            <label class="question"><input class="question_inp" type="radio" name="q28"><span class="question_span">Вася устал, проходя тест</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q28"><span class="question_span">Вася заколебался, проходя тест</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q28"><span class="question_span">Вася не закончил тест</span></label>
+                        </div>
+                        <div class="itc-slider__item">
+                            <h3 class="question_title">Если покормить бушку, она успокоится. Спокойную бушку можно доить</h3>
+                            <label class="question"><input class="question_inp" type="radio" name="q29"><span class="question_span">если бушку не кормить, ее нельзя будет доить</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q29"><span class="question_span">бушку можно доить, но не кормить, она сама чего-нибудь найдет и съест</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q29"><span class="question_span">после кормления бушку можно доить</span></label>
+                        </div>
+                        <div class="itc-slider__item">
+                            <h3 class="question_title">Если обрадовать бушку, она даст молока. Бушка обрадуется, если дернуть ее за хвост</h3>
+                            <label class="question"><input class="question_inp" type="radio" name="q30"><span class="question_span">если дернуть бушку за хвост, она даст молока</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q30"><span class="question_span">никто не обрадуется, если дернуть его за хвост</span></label>
+                            <label class="question"><input class="question_inp" type="radio" name="q30"><span class="question_span">если не дернуть бушку за хвост, она не даст молока</span></label>
+                        </div>
+                    </div>
+                </div>
+                </form>
+                <button class="itc-slider__btn itc-slider__btn_prev"></button>
+                <button class="itc-slider__btn itc-slider__btn_next"></button>
+            </div>
+        </div>
+        <button id='Finish_button' class="restart_button" name="finish" onclick="finish_test()" style="top: 5vh">Готово</button>
+        <a href="/voinarovsky_test" class="restart_button" id='Retry'>Заново</a>
+    </div>
+</div>
+<script src="/public/libs/CookieManager.js"></script>
+<script src="/public/libs/tests/voinarovsky_test.js"></script>
+</body>
+</html>

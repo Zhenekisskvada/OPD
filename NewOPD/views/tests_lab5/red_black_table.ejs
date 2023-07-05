@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/style_test_4.css">
+    <title>Document</title>
+</head>
+<body>
+<div id="bg" class="bg_img">
+    <div class="top">
+        <a href="/tests_lab5">
+            <img class="icon_back" src="/public/img/back.png">
+        </a>
+        <a href="/login">
+            <img class="icon_menu" src="/public/img/menu.png">
+        </a>
+    </div>
+    <div id ='red_black_table' class="tester">
+        <div id='Instruction' class="instruction text_instruction">
+            Этот тест оценивает ваше внимание. Вам необходимо выбрать в возрастающем порядке числа в красных квадратах и в убывающем порядке числа в чёрных квадратах.
+        </div>
+        <button id='Start_button' class="start_button" name="start" onclick="start_test()">Начать</button>
+        <div id="Choosing_instruction" class="choosing_instruction text_choosing_instruction"></div>
+        <div id='Timer' class="iteration">0s</div>
+        <div id='Final Result' class="result"></div>
+        <div id='Scene' class="scene">
+            <div class="cell-red" val="1" onclick="cell(1)">1</div>
+            <div class="cell-red" val="2" onclick="cell(2)">2</div>
+            <div class="cell-red" val="3" onclick="cell(3)">3</div>
+            <div class="cell-red" val="4" onclick="cell(4)">4</div>
+            <div class="cell-red" val="5" onclick="cell(5)">5</div>
+            <div class="cell-red" val="6" onclick="cell(6)">6</div>
+            <div class="cell-red" val="7" onclick="cell(7)">7</div>
+            <div class="cell-red" val="8" onclick="cell(8)">8</div>
+            <div class="cell-red" val="9" onclick="cell(9)">9</div>
+            <div class="cell-red" val="10" onclick="cell(10)">10</div>
+            <div class="cell-red" val="11" onclick="cell(11)">11</div>
+            <div class="cell-red" val="12" onclick="cell(12)">12</div>
+            <div class="cell-red" val="13" onclick="cell(13)">13</div>
+            <div class="cell-red" val="14" onclick="cell(14)">14</div>
+            <div class="cell-red" val="15" onclick="cell(15)">15</div>
+            <div class="cell-red" val="16" onclick="cell(16)">16</div>
+            <div class="cell-red" val="17" onclick="cell(17)">17</div>
+            <div class="cell-red" val="18" onclick="cell(18)">18</div>
+            <div class="cell-red" val="19" onclick="cell(19)">19</div>
+            <div class="cell-red" val="20" onclick="cell(20)">20</div>
+            <div class="cell-red" val="21" onclick="cell(21)">21</div>
+            <div class="cell-red" val="22" onclick="cell(22)">22</div>
+            <div class="cell-red" val="23" onclick="cell(23)">23</div>
+            <div class="cell-red" val="24" onclick="cell(24)">24</div>
+            <div class="cell-red" val="25" onclick="cell(25)">25</div>
+            <div class="cell-black" val="1" onclick="cell(1)">1</div>
+            <div class="cell-black" val="2" onclick="cell(2)">2</div>
+            <div class="cell-black" val="3" onclick="cell(3)">3</div>
+            <div class="cell-black" val="4" onclick="cell(4)">4</div>
+            <div class="cell-black" val="5" onclick="cell(5)">5</div>
+            <div class="cell-black" val="6" onclick="cell(6)">6</div>
+            <div class="cell-black" val="7" onclick="cell(7)">7</div>
+            <div class="cell-black" val="8" onclick="cell(8)">8</div>
+            <div class="cell-black" val="9" onclick="cell(9)">9</div>
+            <div class="cell-black" val="10" onclick="cell(10)">10</div>
+            <div class="cell-black" val="11" onclick="cell(11)">11</div>
+            <div class="cell-black" val="12" onclick="cell(12)">12</div>
+            <div class="cell-black" val="13" onclick="cell(13)">13</div>
+            <div class="cell-black" val="14" onclick="cell(14)">14</div>
+            <div class="cell-black" val="15" onclick="cell(15)">15</div>
+            <div class="cell-black" val="16" onclick="cell(16)">16</div>
+            <div class="cell-black" val="17" onclick="cell(17)">17</div>
+            <div class="cell-black" val="18" onclick="cell(18)">18</div>
+            <div class="cell-black" val="19" onclick="cell(19)">19</div>
+            <div class="cell-black" val="20" onclick="cell(20)">20</div>
+            <div class="cell-black" val="21" onclick="cell(21)">21</div>
+            <div class="cell-black" val="22" onclick="cell(22)">22</div>
+            <div class="cell-black" val="23" onclick="cell(23)">23</div>
+            <div class="cell-black" val="24" onclick="cell(24)">24</div>
+        </div>
+        <a href="/red_black_table" class="restart_button" id='Retry'>Заново</a>
+    </div>
+</div>
+<script src="/public/libs/CookieManager.js"></script>
+<script src="/public/libs/tests/red_black_table.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/style_test_4.css">
+    <link href="/public/libs/itc-slider/itc-slider.css" rel="stylesheet">
+    <script src="/public/libs/itc-slider/itc-slider.js" defer></script>
+    <title>Компасы</title>
+</head>
+<body>
+<div id="bg" class="bg_img">
+    <div class="top">
+        <a href="/tests_lab5">
+            <img class="icon_back" src="/public/img/back.png">
+        </a>
+        <a href="/login">
+            <img class="icon_menu" src="/public/img/menu.png">
+        </a>
+    </div>
+    <div id ='compasses_test' class="tester">
+        <div id='Instruction' class="instruction text_instruction">
+            С помощью теста по методике "Компасы" оценивается способность к пространственному и логическому мышлению.
+            Вам необходимо определить в какую сторону света указывает компас по риске.
+        </div>
+        <button id='Start_button' class="start_button" name="start" onclick="start_test()">Начать</button>
+        <div id='Timer' class="iteration" style="position: sticky; top: 45px; margin-left: 89%">2m 30s</div>
+        <div id='Final Result' class="result"></div>
+        <div class="container container-compasses" id="container"></div>
+        <button id='Finish_button' class="restart_button" name="finish" onclick="finish_test()" style="top: 5vh">Готово</button>
+        <a href="/compasses_test" class="restart_button" id='Retry'>Заново</a>
+    </div>
+</div>
+<script src="/public/libs/CookieManager.js"></script>
+<script src="/public/libs/tests/compasses_test.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/style_test_2.css">
+    <title>Hard moving test</title>
+</head>
+<body>
+<div id="bg" class="bg_img">
+    <div class="top">
+        <a href="/tests_lab3">
+            <img class="icon_back" src="public/img/back.png">
+        </a>
+        <a href="/login">
+            <img class="icon_menu" src="public/img/menu.png">
+        </a>
+    </div>
+    <div class="tester">
+        <div id='Instruction' class="instruction text_instruction">
+            Этот тест считывает скорость реакции на движущийся объект. Ваша цель - нажать на клавишы
+            <b style="color: green">A</b>, <b style="color: red">S</b> или <b style="color: purple">D</b>
+            как только медленный, средний или быстрый круг соответственно совместиться с белым.
+        </div>
+        <div id='Iteration' class="iteration"></div>
+        <button id='Start_button' class="start_button" name="start" onclick="start_test()">Начать</button>
+        <div class="moving-test" id="movingTest">
+            <div class="moving-test__moving-dot-wrapper moving-test__moving-dot-wrapper_speed_low" id='slowMovingDot'>
+                <div class="moving-test__moving-dot" style="background-color: green"></div>
+            </div>
+            <div class="moving-test__moving-dot-wrapper" id='middleMovingDot'>
+                <div class="moving-test__moving-dot"></div>
+            </div>
+            <div class="moving-test__moving-dot-wrapper moving-test__moving-dot-wrapper_speed_high" id='fastMovingDot'>
+                <div class="moving-test__moving-dot" style="background-color: purple"></div>
+            </div>
+            <div class="moving-test__fixed-dot" id="fixedDot"></div>
+        </div>
+        <div id='Result' class="result"></div>
+        <a href="/hard_moving_test" class="restart_button" id='Retry'>Заново</a>
+    </div>
+</div>
+<script src="/public/libs/CookieManager.js"></script>
+<script src="/public/libs/tests/hard_moving_test.js"></script>
+</body>
+</html>

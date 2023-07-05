@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/style_test_1.css" id="stylesheet">
+    <link href="/public/libs/itc-slider/itc-slider.css" rel="stylesheet" id="slidercss">
+    <script src="/public/libs/itc-slider/itc-slider.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+<div id="bg" class="bg_img">
+    <div class="top">
+        <a href="/tests">
+            <img class="icon_back" src="/public/img/back.png">
+        </a>
+        <a href="/login">
+            <img class="icon_menu" src="/public/img/menu.png">
+        </a>
+    </div>
+    <div class="tester" id="current">
+        <form method="post" action="/pulse_start">
+            <div class="instruction text_instruction">Пожалуйста, проведите измерение своего пульса и введите значение в поле ниже:</div>
+
+            <div class="pulse_input">
+                <input type="number" name="pulse" required placeholder="Введите значение пульса">
+            </div>
+            <div class="list_button">
+                <button class="sent" onclick="">Далее</button>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="tester" id="easy_aud_test" style="display: none">
+        <div id='Instruction' class="instruction text_instruction">Этот тест считывает скорость реакции на звуковой сигнал. Ваша цель - нажать на круг как только прозвучит звуковой сигнал.</div>
+        <div id='Iteration' class="iteration"></div>
+        <button id='Start_button' class="start_button" name="start" onclick="start_test()">Начать</button>
+        <div id='Circle' class="circle" onclick="onAnswer()"></div>
+        <div id='Result' class="result"></div>
+        <div id='Final Result' class="result"></div>
+        <button id='Retry' class="restart_button" onclick="nextTest()">Следующий тест</button>
+    </div>
+
+    <div class="tester" id="easy_eye_test" style="display: none">
+        <div id='Instruction' class="instruction text_instruction">
+            Этот тест считывает скорость реакции на световой сигнал. Ваша цель - нажать на круг как только он поменяет свой цвет.
+        </div>
+        <div id='Iteration' class="iteration"></div>
+        <button id='Start_button' class="start_button" name="start" onclick="start_test()">Начать</button>
+        <div id='Circle' class="circle" onclick="onAnswer()"></div>
+        <div id='Result' class="result"></div>
+        <div id='Final Result' class="result"></div>
+        <button id='Retry' class="restart_button" onclick="nextTest()">Следующий тест</button>
+    </div>
+
+    <div class="tester" id="hard_eye_test" style="display: none">
+        <div id='Instruction' class="instruction text_instruction">Этот тест считывает скорость реакции на световой сигнал и бдительность. Ваша цель - нажать на круг того цвета и размера которые будут указаны.</div>
+        <div id='Iteration' class="iteration"></div>
+        <button id='Start_button' class="start_button" name="start" onclick="start_test()">Начать</button>
+        <div id='Result' class="result"></div>
+        <div id="Choosing_instruction" class="choosing_instruction text_choosing_instruction"></div>
+        <div id='Circle1' class="circle" onclick="onAnswer(true)"></div>
+        <div id='Circle2' class="circle" onclick="onAnswer(false)"></div>
+        <div id='Circle3' class="circle" onclick="onAnswer(false)"></div>
+        <div id='Circle4' class="circle" onclick="onAnswer(false)"></div>
+
+        <div id='Final Result' class="result"></div>
+        <button id='Retry' class="restart_button" onclick="nextTest()">Следующий тест</button>
+    </div>
+
+    <div class="tester" id="med_eye_test" style="display: none">
+        <div id='Instruction' class="instruction text_instruction">
+            Этот тест считывает скорость реакции на световой сигнал. Ваша цель - нажать на круг как только он поменяет свой цвет.
+        </div>
+        <div id='Iteration' class="iteration"></div>
+        <button id='Start_button' class="start_button" name="start" onclick="start_test()">Начать</button>
+        <div id='Circle1' class="circle" onclick="onAnswer('Circle1')"></div>
+        <div id='Circle2' class="circle" onclick="onAnswer('Circle2')"></div>
+        <div id='Circle3' class="circle" onclick="onAnswer('Circle3')"></div>
+        <div id='Circle4' class="circle" onclick="onAnswer('Circle4')"></div>
+        <div id='Result' class="result"></div>
+        <div id='Final Result' class="result"></div>
+        <button id='Retry' class="restart_button" onclick="nextTest()">Следующий тест</button>
+    </div>
+
+    <div class="tester" id="sum_aud_test" style="display: none">
+        <div id='Instruction' class="instruction text_instruction">
+            Этот тест считывает скорость сложения чисел в уме и определение результата как четное или нечётное число.
+        </div>
+        <div id='Iteration' class="iteration"></div>
+        <button id='Start_button' class="start_button" name="start" onclick="start_test()">Начать</button>
+        <button id="Even" class="number_button" onclick="onAnswer(0)">Чёт Кнопка F</button>
+        <button id="Odd" class="number_button" onclick="onAnswer(1)">Нечёт Кнопка J</button>
+        <div id='Result' class="result"></div>
+        <div id='Final Result' class="result"></div>
+        <button id='Retry' class="restart_button" onclick="nextTest()">Следующий тест</button>
+    </div>
+
+    <div class="tester" id="sum_eye_test" style="display: none">
+        <div id='Instruction' class="instruction text_instruction">
+            Этот тест считывает скорость сложения чисел в уме и определение результата как четное или нечётное число.
+        </div>
+        <div id='Iteration' class="iteration"></div>
+        <button id='Start_button' class="start_button" name="start" onclick="start_test()">Начать</button>
+        <div id="Calc" class="choosing_instruction text_choosing_instruction"></div>
+        <button id="Even" class="number_button" onclick="onAnswer(0)">Чёт Кнопка F</button>
+        <button id="Odd" class="number_button" onclick="onAnswer(1)">Нечёт Кнопка J</button>
+        <div id='Result' class="result"></div>
+        <div id='Final Result' class="result"></div>
+        <button id='Retry' class="restart_button" onclick="nextTest()">Следующий тест</button>
+    </div>
+
+    <div class="tester" id="easy_moving_test" style="display: none">
+        <div id='Instruction' class="instruction text_instruction">
+            Этот тест считывает скорость реакции на движущийся объект. Ваша цель - нажать на ПРОБЕЛ как только красный круг совместиться с белым.
+        </div>
+        <div id='Iteration' class="iteration"></div>
+        <button id='Start_button' class="start_button" name="start" onclick="start_test()">Начать</button>
+        <div class="moving-test" id="movingTest">
+            <div class="moving-test__moving-dot-wrapper" id='movingDotWrapper'>
+                <div class="moving-test__moving-dot" id="movingDot"></div>
+            </div>
+            <div class="moving-test__fixed-dot" id="fixedDot"></div>
+        </div>
+        <div id='Result' class="result"></div>
+        <button id='Retry' class="restart_button" onclick="nextTest()">Следующий тест</button>
+    </div>
+
+    <div class="tester" id="hard_moving_test" style="display: none">
+        <div id='Instruction' class="instruction text_instruction">
+            Этот тест считывает скорость реакции на движущийся объект. Ваша цель - нажать на клавишы
+            <b style="color: green">A</b>, <b style="color: red">S</b> или <b style="color: purple">D</b>
+            как только медленный, средний или быстрый круг соответственно совместиться с белым.
+        </div>
+        <div id='Iteration' class="iteration"></div>
+        <button id='Start_button' class="start_button" name="start" onclick="start_test()">Начать</button>
+        <div class="moving-test" id="movingTest">
+            <div class="moving-test__moving-dot-wrapper moving-test__moving-dot-wrapper_speed_low" id='slowMovingDot'>
+                <div class="moving-test__moving-dot" style="background-color: green"></div>
+            </div>
+            <div class="moving-test__moving-dot-wrapper" id='middleMovingDot'>
+                <div class="moving-test__moving-dot"></div>
+            </div>
+            <div class="moving-test__moving-dot-wrapper moving-test__moving-dot-wrapper_speed_high" id='fastMovingDot'>
+                <div class="moving-test__moving-dot" style="background-color: purple"></div>
+            </div>
+            <div class="moving-test__fixed-dot" id="fixedDot"></div>
+        </div>
+        <div id='Result' class="result"></div>
+        <button id='Retry' class="restart_button" onclick="nextTest()">Следующий тест</button>
+    </div>
+
+    <div class="tester" id="analog_tracking" style="display: none">
+        <div id='Instruction' class="instruction text_instruction">
+            Этот тест считывает вашу реакцию на случайное перемещение маркера. Ваша цель - возвращение маркера в исходное мнстоположение.
+        </div>
+        <button id='Start_button' class="start_button" name="start" onclick="start_test()">Начать</button>
+        <div id='Circle' class="circle"></div>
+        <div id='Timer' class="iteration">20s</div>
+        <div id='Score' class="iteration">Score: 0</div>
+        <div id='Upper_marker' class="rectangle"></div>
+        <div id='Lower_marker' class="rectangle"></div>
+        <div id='Final Result' class="result"></div>
+        <button id='Retry' class="restart_button" onclick="nextTest()">Следующий тест</button>
+    </div>
+
+    <div id ='tracking_with_persecution' class="tester" style="display: none">
+        <div id='Instruction' class="instruction text_instruction">
+            Этот тест считывает вашу реакцию на случайное перемещение мишени. Ваша цель - преследовать цель за мишенью.
+        </div>
+        <button id='Start_button' class="start_button" name="start" onclick="start_test()">Начать</button>
+        <div id='Target' class="circle"></div>
+        <div id='Crosshair' class="crosshair"></div>
+        <div id='Timer' class="iteration">20s</div>
+        <div id='Score' class="iteration">Score: 0</div>
+        <div id='Upper_marker' class="rectangle"></div>
+        <div id='Lower_marker' class="rectangle"></div>
+        <div id='Final Result' class="result"></div>
+        <button id='Retry' class="restart_button" onclick="nextTest()">Следующий тест</button>
+    </div>
+
+    <div id ='compasses_test' class="tester" style="display: none">
+        <div id='Instruction' class="instruction text_instruction">
+            С помощью теста по методике "Компасы" оценивается способность к пространственному и логическому мышлению.
+            Вам необходимо определить в какую сторону света указывает компас по риске.
+        </div>
+        <button id='Start_button' class="start_button" name="start" onclick="start_test()">Начать</button>
+        <div id='Timer' class="iteration" style="position: sticky; top: 45px; margin-left: 89%">2m 30s</div>
+        <div id='Final Result' class="result"></div>
+        <div class="container container-compasses" id="container"></div>
+        <button id='Finish_button' class="restart_button" name="finish" onclick="finish_test()" style="top: 5vh">Готово</button>
+        <button id='Retry' class="restart_button" onclick="nextTest()">Следующий тест</button>
+    </div>
+
+    <div id ='landolt_ring' class="tester" style="display: none">
+        <div id='Instruction' class="instruction text_instruction">
+            Этот тест оценивает ваше внимание. Вам необходимо выбрать все кольца соответствующие с указаным.
+        </div>
+        <button id='Start_button' class="start_button" name="start" onclick="start_test()">Начать</button>
+        <div id="Choosing_instruction" class="choosing_instruction text_choosing_instruction"></div>
+        <div id="Choosing_img" class="choosing_instruction text_choosing_instruction" style="background-color: white; width: 5vh; height: 5vh; left: 48vw"></div>
+        <div id='Timer' class="iteration">0s</div>
+        <div id='Final Result' class="result"></div>
+        <div id='Scene' class="scene" style="top: 6vh">
+            <div class="cell" id="1" onclick="cell(1, 1)"><img src="/public/img/n.png" class="cell_img"></div>
+            <div class="cell" id="2" onclick="cell(1, 2)"><img src="/public/img/n.png" class="cell_img"></div>
+            <div class="cell" id="3" onclick="cell(1, 3)"><img src="/public/img/n.png" class="cell_img"></div>
+            <div class="cell" id="4" onclick="cell(1, 4)"><img src="/public/img/n.png" class="cell_img"></div>
+            <div class="cell" id="5" onclick="cell(1, 5)"><img src="/public/img/n.png" class="cell_img"></div>
+            <div class="cell" id="6" onclick="cell(1, 6)"><img src="/public/img/n.png" class="cell_img"></div>
+            <div class="cell" id="7" onclick="cell(1, 7)"><img src="/public/img/n.png" class="cell_img"></div>
+            <div class="cell" id="8" onclick="cell(1, 8)"><img src="/public/img/n.png" class="cell_img"></div>
+            <div class="cell" id="9" onclick="cell(2, 9)"><img src="/public/img/ne.png" class="cell_img"></div>
+            <div class="cell" id="10" onclick="cell(2, 10)"><img src="/public/img/ne.png" class="cell_img"></div>
+            <div class="cell" id="11" onclick="cell(2, 11)"><img src="/public/img/ne.png" class="cell_img"></div>
+            <div class="cell" id="12" onclick="cell(2, 12)"><img src="/public/img/ne.png" class="cell_img"></div>
+            <div class="cell" id="13" onclick="cell(2, 13)"><img src="/public/img/ne.png" class="cell_img"></div>
+            <div class="cell" id="14" onclick="cell(2, 14)"><img src="/public/img/ne.png" class="cell_img"></div>
+            <div class="cell" id="15" onclick="cell(2, 15)"><img src="/public/img/ne.png" class="cell_img"></div>
+            <div class="cell" id="16" onclick="cell(2, 16)"><img src="/public/img/ne.png" class="cell_img"></div>
+            <div class="cell" id="17" onclick="cell(3, 17)"><img src="/public/img/e.png" class="cell_img"></div>
+            <div class="cell" id="18" onclick="cell(3, 18)"><img src="/public/img/e.png" class="cell_img"></div>
+            <div class="cell" id="19" onclick="cell(3, 19)"><img src="/public/img/e.png" class="cell_img"></div>
+            <div class="cell" id="20" onclick="cell(3, 20)"><img src="/public/img/e.png" class="cell_img"></div>
+            <div class="cell" id="21" onclick="cell(3, 21)"><img src="/public/img/e.png" class="cell_img"></div>
+            <div class="cell" id="22" onclick="cell(3, 22)"><img src="/public/img/e.png" class="cell_img"></div>
+            <div class="cell" id="23" onclick="cell(3, 23)"><img src="/public/img/e.png" class="cell_img"></div>
+            <div class="cell" id="24" onclick="cell(3, 24)"><img src="/public/img/e.png" class="cell_img"></div>
+            <div class="cell" id="25" onclick="cell(4, 25)"><img src="/public/img/se.png" class="cell_img"></div>
+            <div class="cell" id="26" onclick="cell(4, 26)"><img src="/public/img/se.png" class="cell_img"></div>
+            <div class="cell" id="27" onclick="cell(4, 27)"><img src="/public/img/se.png" class="cell_img"></div>
+            <div class="cell" id="28" onclick="cell(4, 28)"><img src="/public/img/se.png" class="cell_img"></div>
+            <div class="cell" id="29" onclick="cell(4, 29)"><img src="/public/img/se.png" class="cell_img"></div>
+            <div class="cell" id="30" onclick="cell(4, 30)"><img src="/public/img/se.png" class="cell_img"></div>
+            <div class="cell" id="31" onclick="cell(4, 31)"><img src="/public/img/se.png" class="cell_img"></div>
+            <div class="cell" id="32" onclick="cell(4, 32)"><img src="/public/img/se.png" class="cell_img"></div>
+            <div class="cell" id="33" onclick="cell(5, 33)"><img src="/public/img/s.png" class="cell_img"></div>
+            <div class="cell" id="34" onclick="cell(5, 34)"><img src="/public/img/s.png" class="cell_img"></div>
+            <div class="cell" id="35" onclick="cell(5, 35)"><img src="/public/img/s.png" class="cell_img"></div>
+            <div class="cell" id="36" onclick="cell(5, 36)"><img src="/public/img/s.png" class="cell_img"></div>
+            <div class="cell" id="37" onclick="cell(5, 37)"><img src="/public/img/s.png" class="cell_img"></div>
+            <div class="cell" id="38" onclick="cell(5, 38)"><img src="/public/img/s.png" class="cell_img"></div>
+            <div class="cell" id="39" onclick="cell(5, 39)"><img src="/public/img/s.png" class="cell_img"></div>
+            <div class="cell" id="40" onclick="cell(5, 40)"><img src="/public/img/s.png" class="cell_img"></div>
+            <div class="cell" id="41" onclick="cell(6, 41)"><img src="/public/img/sw.png" class="cell_img"></div>
+            <div class="cell" id="42" onclick="cell(6, 42)"><img src="/public/img/sw.png" class="cell_img"></div>
+            <div class="cell" id="43" onclick="cell(6, 43)"><img src="/public/img/sw.png" class="cell_img"></div>
+            <div class="cell" id="44" onclick="cell(6, 44)"><img src="/public/img/sw.png" class="cell_img"></div>
+            <div class="cell" id="45" onclick="cell(6, 45)"><img src="/public/img/sw.png" class="cell_img"></div>
+            <div class="cell" id="46" onclick="cell(6, 46)"><img src="/public/img/sw.png" class="cell_img"></div>
+            <div class="cell" id="47" onclick="cell(6, 47)"><img src="/public/img/sw.png" class="cell_img"></div>
+            <div class="cell" id="48" onclick="cell(6, 48)"><img src="/public/img/sw.png" class="cell_img"></div>
+            <div class="cell" id="49" onclick="cell(7, 49)"><img src="/public/img/w.png" class="cell_img"></div>
+            <div class="cell" id="50" onclick="cell(7, 50)"><img src="/public/img/w.png" class="cell_img"></div>
+            <div class="cell" id="51" onclick="cell(7, 51)"><img src="/public/img/w.png" class="cell_img"></div>
+            <div class="cell" id="52" onclick="cell(7, 52)"><img src="/public/img/w.png" class="cell_img"></div>
+            <div class="cell" id="53" onclick="cell(7, 53)"><img src="/public/img/w.png" class="cell_img"></div>
+            <div class="cell" id="54" onclick="cell(7, 54)"><img src="/public/img/w.png" class="cell_img"></div>
+            <div class="cell" id="55" onclick="cell(7, 55)"><img src="/public/img/w.png" class="cell_img"></div>
+            <div class="cell" id="56" onclick="cell(7, 56)"><img src="/public/img/w.png" class="cell_img"></div>
+            <div class="cell" id="57" onclick="cell(8, 57)"><img src="/public/img/nw.png" class="cell_img"></div>
+            <div class="cell" id="58" onclick="cell(8, 58)"><img src="/public/img/nw.png" class="cell_img"></div>
+            <div class="cell" id="59" onclick="cell(8, 59)"><img src="/public/img/nw.png" class="cell_img"></div>
+            <div class="cell" id="60" onclick="cell(8, 60)"><img src="/public/img/nw.png" class="cell_img"></div>
+            <div class="cell" id="61" onclick="cell(8, 61)"><img src="/public/img/nw.png" class="cell_img"></div>
+            <div class="cell" id="62" onclick="cell(8, 62)"><img src="/public/img/nw.png" class="cell_img"></div>
+            <div class="cell" id="63" onclick="cell(8, 63)"><img src="/public/img/nw.png" class="cell_img"></div>
+            <div class="cell" id="64" onclick="cell(8, 64)"><img src="/public/img/nw.png" class="cell_img"></div>
+        </div>
+        <button id='Finish_button' class="restart_button" name="finish" onclick="finish_test()" style="top: 8vh">Готово</button>
+        <button id='Retry' class="restart_button" onclick="nextTest()">Следующий тест</button>
+    </div>
+
+    <div id ='raven_test' class="tester" style="display: none">
+        <div id='Instruction' class="instruction text_instruction">
+            Вам предлагается ряд картинок. На каждом рисунке недостает одной фигуры, Вам необходимо выбрать один из
+            вариантов предложенных фигур, которая на ваш взгляд подходит к рисунку больше всего.
+        </div>
+        <button id='Start_button' class="start_button" name="start" onclick="start_test()">Начать</button>
+        <div id='Final Result' class="result"></div>
+        <div id='Scene' class="scene raven-scene" style="top: 6vh">
+            <img src="/public/img/raven_test/A1.png" style="position: absolute; z-index: 60">
+            <img src="/public/img/raven_test/A2.png" style="position: absolute; z-index: 59">
+            <img src="/public/img/raven_test/A3.png" style="position: absolute; z-index: 58">
+            <img src="/public/img/raven_test/A4.png" style="position: absolute; z-index: 57">
+            <img src="/public/img/raven_test/A5.png" style="position: absolute; z-index: 56">
+            <img src="/public/img/raven_test/A6.png" style="position: absolute; z-index: 55">
+            <img src="/public/img/raven_test/A7.png" style="position: absolute; z-index: 54">
+            <img src="/public/img/raven_test/A8.png" style="position: absolute; z-index: 53">
+            <img src="/public/img/raven_test/A9.png" style="position: absolute; z-index: 52">
+            <img src="/public/img/raven_test/A10.png" style="position: absolute; z-index: 51">
+            <img src="/public/img/raven_test/A11.png" style="position: absolute; z-index: 50">
+            <img src="/public/img/raven_test/A12.png" style="position: absolute; z-index: 49">
+            <img src="/public/img/raven_test/B1.png" style="position: absolute; z-index: 48">
+            <img src="/public/img/raven_test/B2.png" style="position: absolute; z-index: 47">
+            <img src="/public/img/raven_test/B3.png" style="position: absolute; z-index: 46">
+            <img src="/public/img/raven_test/B4.png" style="position: absolute; z-index: 45">
+            <img src="/public/img/raven_test/B5.png" style="position: absolute; z-index: 44">
+            <img src="/public/img/raven_test/B6.png" style="position: absolute; z-index: 43">
+            <img src="/public/img/raven_test/B7.png" style="position: absolute; z-index: 42">
+            <img src="/public/img/raven_test/B8.png" style="position: absolute; z-index: 41">
+            <img src="/public/img/raven_test/B9.png" style="position: absolute; z-index: 40">
+            <img src="/public/img/raven_test/B10.png" style="position: absolute; z-index: 39">
+            <img src="/public/img/raven_test/B11.png" style="position: absolute; z-index: 38">
+            <img src="/public/img/raven_test/B12.png" style="position: absolute; z-index: 37">
+            <img src="/public/img/raven_test/C1.png" style="position: absolute; z-index: 36">
+            <img src="/public/img/raven_test/C2.png" style="position: absolute; z-index: 35">
+            <img src="/public/img/raven_test/C3.png" style="position: absolute; z-index: 34">
+            <img src="/public/img/raven_test/C4.png" style="position: absolute; z-index: 33">
+            <img src="/public/img/raven_test/C5.png" style="position: absolute; z-index: 32">
+            <img src="/public/img/raven_test/C6.png" style="position: absolute; z-index: 31">
+            <img src="/public/img/raven_test/C7.png" style="position: absolute; z-index: 30">
+            <img src="/public/img/raven_test/C8.png" style="position: absolute; z-index: 29">
+            <img src="/public/img/raven_test/C9.png" style="position: absolute; z-index: 28">
+            <img src="/public/img/raven_test/C10.png" style="position: absolute; z-index: 27">
+            <img src="/public/img/raven_test/C11.png" style="position: absolute; z-index: 26">
+            <img src="/public/img/raven_test/C12.png" style="position: absolute; z-index: 25">
+            <img src="/public/img/raven_test/D1.png" style="position: absolute; z-index: 24">
+            <img src="/public/img/raven_test/D2.png" style="position: absolute; z-index: 23">
+            <img src="/public/img/raven_test/D3.png" style="position: absolute; z-index: 22">
+            <img src="/public/img/raven_test/D4.png" style="position: absolute; z-index: 21">
+            <img src="/public/img/raven_test/D5.png" style="position: absolute; z-index: 20">
+            <img src="/public/img/raven_test/D6.png" style="position: absolute; z-index: 19">
+            <img src="/public/img/raven_test/D7.png" style="position: absolute; z-index: 18">
+            <img src="/public/img/raven_test/D8.png" style="position: absolute; z-index: 17">
+            <img src="/public/img/raven_test/D9.png" style="position: absolute; z-index: 16">
+            <img src="/public/img/raven_test/D10.png" style="position: absolute; z-index: 15">
+            <img src="/public/img/raven_test/D11.png" style="position: absolute; z-index: 14">
+            <img src="/public/img/raven_test/D12.png" style="position: absolute; z-index: 13">
+            <img src="/public/img/raven_test/E1.png" style="position: absolute; z-index: 12">
+            <img src="/public/img/raven_test/E2.png" style="position: absolute; z-index: 11">
+            <img src="/public/img/raven_test/E3.png" style="position: absolute; z-index: 10">
+            <img src="/public/img/raven_test/E4.png" style="position: absolute; z-index: 9">
+            <img src="/public/img/raven_test/E5.png" style="position: absolute; z-index: 8">
+            <img src="/public/img/raven_test/E6.png" style="position: absolute; z-index: 7">
+            <img src="/public/img/raven_test/E7.png" style="position: absolute; z-index: 6">
+            <img src="/public/img/raven_test/E8.png" style="position: absolute; z-index: 5">
+            <img src="/public/img/raven_test/E9.png" style="position: absolute; z-index: 4">
+            <img src="/public/img/raven_test/E10.png" style="position: absolute; z-index: 3">
+            <img src="/public/img/raven_test/E11.png" style="position: absolute; z-index: 2">
+            <img src="/public/img/raven_test/E12.png" style="position: absolute; z-index: 1">
+        </div>
+        <button id='Retry' class="restart_button" onclick="nextTest()">Следующий тест</button>
+    </div>
+
+    <div id ='red_black_table' class="tester" style="display: none">
+        <div id='Instruction' class="instruction text_instruction">
+            Этот тест оценивает ваше внимание. Вам необходимо выбрать в возрастающем порядке числа в красных квадратах и в убывающем порядке числа в чёрных квадратах.
+        </div>
+        <button id='Start_button' class="start_button" name="start" onclick="start_test()">Начать</button>
+        <div id="Choosing_instruction" class="choosing_instruction text_choosing_instruction"></div>
+        <div id='Timer' class="iteration">0s</div>
+        <div id='Final Result' class="result"></div>
+        <div id='Scene' class="scene">
+            <div class="cell-red" val="1" onclick="cell(1)">1</div>
+            <div class="cell-red" val="2" onclick="cell(2)">2</div>
+            <div class="cell-red" val="3" onclick="cell(3)">3</div>
+            <div class="cell-red" val="4" onclick="cell(4)">4</div>
+            <div class="cell-red" val="5" onclick="cell(5)">5</div>
+            <div class="cell-red" val="6" onclick="cell(6)">6</div>
+            <div class="cell-red" val="7" onclick="cell(7)">7</div>
+            <div class="cell-red" val="8" onclick="cell(8)">8</div>
+            <div class="cell-red" val="9" onclick="cell(9)">9</div>
+            <div class="cell-red" val="10" onclick="cell(10)">10</div>
+            <div class="cell-red" val="11" onclick="cell(11)">11</div>
+            <div class="cell-red" val="12" onclick="cell(12)">12</div>
+            <div class="cell-red" val="13" onclick="cell(13)">13</div>
+            <div class="cell-red" val="14" onclick="cell(14)">14</div>
+            <div class="cell-red" val="15" onclick="cell(15)">15</div>
+            <div class="cell-red" val="16" onclick="cell(16)">16</div>
+            <div class="cell-red" val="17" onclick="cell(17)">17</div>
+            <div class="cell-red" val="18" onclick="cell(18)">18</div>
+            <div class="cell-red" val="19" onclick="cell(19)">19</div>
+            <div class="cell-red" val="20" onclick="cell(20)">20</div>
+            <div class="cell-red" val="21" onclick="cell(21)">21</div>
+            <div class="cell-red" val="22" onclick="cell(22)">22</div>
+            <div class="cell-red" val="23" onclick="cell(23)">23</div>
+            <div class="cell-red" val="24" onclick="cell(24)">24</div>
+            <div class="cell-red" val="25" onclick="cell(25)">25</div>
+            <div class="cell-black" val="1" onclick="cell(1)">1</div>
+            <div class="cell-black" val="2" onclick="cell(2)">2</div>
+            <div class="cell-black" val="3" onclick="cell(3)">3</div>
+            <div class="cell-black" val="4" onclick="cell(4)">4</div>
+            <div class="cell-black" val="5" onclick="cell(5)">5</div>
+            <div class="cell-black" val="6" onclick="cell(6)">6</div>
+            <div class="cell-black" val="7" onclick="cell(7)">7</div>
+            <div class="cell-black" val="8" onclick="cell(8)">8</div>
+            <div class="cell-black" val="9" onclick="cell(9)">9</div>
+            <div class="cell-black" val="10" onclick="cell(10)">10</div>
+            <div class="cell-black" val="11" onclick="cell(11)">11</div>
+            <div class="cell-black" val="12" onclick="cell(12)">12</div>
+            <div class="cell-black" val="13" onclick="cell(13)">13</div>
+            <div class="cell-black" val="14" onclick="cell(14)">14</div>
+            <div class="cell-black" val="15" onclick="cell(15)">15</div>
+            <div class="cell-black" val="16" onclick="cell(16)">16</div>
+            <div class="cell-black" val="17" onclick="cell(17)">17</div>
+            <div class="cell-black" val="18" onclick="cell(18)">18</div>
+            <div class="cell-black" val="19" onclick="cell(19)">19</div>
+            <div class="cell-black" val="20" onclick="cell(20)">20</div>
+            <div class="cell-black" val="21" onclick="cell(21)">21</div>
+            <div class="cell-black" val="22" onclick="cell(22)">22</div>
+            <div class="cell-black" val="23" onclick="cell(23)">23</div>
+            <div class="cell-black" val="24" onclick="cell(24)">24</div>
+        </div>
+        <button id='Retry' class="restart_button" onclick="nextTest()">Следующий тест</button>
+    </div>
+
+    <div id ='verbal_memory' class="tester" style="display: none">
+        <div id='Instruction' class="instruction text_instruction">
+            Этот тест оценивает вашу словесную память. Вам необходимо запомнить как можно больше слов и написать их в любом порядке.
+        </div>
+        <div id='Iteration' class="iteration"></div>
+        <button id='Start_button' class="start_button" name="start" onclick="start_test()">Начать</button>
+        <div id='Final Result' class="result"></div>
+        <div id='Scene' class="scene">
+            <div class="cell_verbal" id="cell1">1</div>
+            <div class="cell_verbal" id="cell2">2</div>
+            <div class="cell_verbal" id="cell3">3</div>
+            <div class="cell_verbal" id="cell4">4</div>
+            <div class="cell_verbal" id="cell5">5</div>
+            <div class="cell_verbal" id="cell6">6</div>
+            <div class="cell_verbal" id="cell7">7</div>
+            <div class="cell_verbal" id="cell8">8</div>
+            <div class="cell_verbal" id="cell9">9</div>
+            <div class="cell_verbal" id="cell10">10</div>
+            <div class="cell_verbal" id="cell11">11</div>
+            <div class="cell_verbal" id="cell12">12</div>
+            <div class="cell_verbal" id="cell13">13</div>
+            <div class="cell_verbal" id="cell14">14</div>
+            <div class="cell_verbal" id="cell15">15</div>
+            <div class="cell_verbal" id="cell16">16</div>
+        </div>
+        <button id='Finish_button' class="restart_button" name="finish" onclick="onAnswer()" style="top: 10vh">Готово</button>
+        <button id='Retry' class="restart_button" onclick="nextTest()">Следующий тест</button>
+    </div>
+
+    <div id ='visual_memory' class="tester" style="display: none">
+        <div id='Instruction' class="instruction text_instruction">
+            Этот тест оценивает вашу визуальную память. Вам необходимо запомнить какие ячейки загорелись и кликнуть на них.
+        </div>
+        <button id='Start_button' class="start_button" name="start" onclick="start_test()">Начать</button>
+        <div id="Choosing_instruction" class="choosing_instruction text_choosing_instruction"></div>
+        <div id="Choosing_img" class="choosing_instruction text_choosing_instruction" style="background-color: white; width: 5vh; height: 5vh; left: 48vw"></div>
+        <div id='Final Result' class="result"></div>
+        <div id='Scene' class="scene" style="top: 6vh">
+            <div class="cell" id="1" onclick="cell(1)"></div>
+            <div class="cell" id="2" onclick="cell(2)"></div>
+            <div class="cell" id="3" onclick="cell(3)"></div>
+            <div class="cell" id="4" onclick="cell(4)"></div>
+            <div class="cell" id="5" onclick="cell(5)"></div>
+            <div class="cell" id="6" onclick="cell(6)"></div>
+            <div class="cell" id="7" onclick="cell(7)"></div>
+            <div class="cell" id="8" onclick="cell(8)"></div>
+            <div class="cell" id="9" onclick="cell(9)"></div>
+            <div class="cell" id="10" onclick="cell(10)"></div>
+            <div class="cell" id="11" onclick="cell(11)"></div>
+            <div class="cell" id="12" onclick="cell(12)"></div>
+            <div class="cell" id="13" onclick="cell(13)"></div>
+            <div class="cell" id="14" onclick="cell(14)"></div>
+            <div class="cell" id="15" onclick="cell(15)"></div>
+            <div class="cell" id="16" onclick="cell(16)"></div>
+            <div class="cell" id="17" onclick="cell(17)"></div>
+            <div class="cell" id="18" onclick="cell(18)"></div>
+            <div class="cell" id="19" onclick="cell(19)"></div>
+            <div class="cell" id="20" onclick="cell(20)"></div>
+            <div class="cell" id="21" onclick="cell(21)"></div>
+            <div class="cell" id="22" onclick="cell(22)"></div>
+            <div class="cell" id="23" onclick="cell(23)"></div>
+            <div class="cell" id="24" onclick="cell(24)"></div>
+            <div class="cell" id="25" onclick="cell(25)"></div>
+            <div class="cell" id="26" onclick="cell(26)"></div>
+            <div class="cell" id="27" onclick="cell(27)"></div>
+            <div class="cell" id="28" onclick="cell(28)"></div>
+            <div class="cell" id="29" onclick="cell(29)"></div>
+            <div class="cell" id="30" onclick="cell(30)"></div>
+            <div class="cell" id="31" onclick="cell(31)"></div>
+            <div class="cell" id="32" onclick="cell(32)"></div>
+            <div class="cell" id="33" onclick="cell(33)"></div>
+            <div class="cell" id="34" onclick="cell(34)"></div>
+            <div class="cell" id="35" onclick="cell(35)"></div>
+            <div class="cell" id="36" onclick="cell(36)"></div>
+            <div class="cell" id="37" onclick="cell(37)"></div>
+            <div class="cell" id="38" onclick="cell(38)"></div>
+            <div class="cell" id="39" onclick="cell(39)"></div>
+            <div class="cell" id="40" onclick="cell(40)"></div>
+            <div class="cell" id="41" onclick="cell(41)"></div>
+            <div class="cell" id="42" onclick="cell(42)"></div>
+            <div class="cell" id="43" onclick="cell(43)"></div>
+            <div class="cell" id="44" onclick="cell(44)"></div>
+            <div class="cell" id="45" onclick="cell(45)"></div>
+            <div class="cell" id="46" onclick="cell(46)"></div>
+            <div class="cell" id="47" onclick="cell(47)"></div>
+            <div class="cell" id="48" onclick="cell(48)"></div>
+            <div class="cell" id="49" onclick="cell(49)"></div>
+            <div class="cell" id="50" onclick="cell(50)"></div>
+            <div class="cell" id="51" onclick="cell(51)"></div>
+            <div class="cell" id="52" onclick="cell(52)"></div>
+            <div class="cell" id="53" onclick="cell(53)"></div>
+            <div class="cell" id="54" onclick="cell(54)"></div>
+            <div class="cell" id="55" onclick="cell(55)"></div>
+            <div class="cell" id="56" onclick="cell(56)"></div>
+            <div class="cell" id="57" onclick="cell(57)"></div>
+            <div class="cell" id="58" onclick="cell(58)"></div>
+            <div class="cell" id="59" onclick="cell(59)"></div>
+            <div class="cell" id="60" onclick="cell(60)"></div>
+            <div class="cell" id="61" onclick="cell(61)"></div>
+            <div class="cell" id="62" onclick="cell(62)"></div>
+            <div class="cell" id="63" onclick="cell(63)"></div>
+            <div class="cell" id="64" onclick="cell(64)"></div>
+
+        </div>
+        <button id='Finish_button' class="restart_button" name="finish" onclick="finish_test()" style="top: 10vh">Готово</button>
+        <button id='Retry' class="restart_button" onclick="nextTest()">Следующий тест</button>
+    </div>
+
+    <div id ='voinarovsky_test' class="tester" style="display: none">
+        <div id='Instruction' class="instruction text_instruction">
+            Вам предлагается логическое суждение и несколько следствий; из трех следствий одно и только одно правильно.
+            Ваша задача выбрать его.
+        </div>
+        <button id='Start_button' class="start_button" name="start" onclick="start_test()">Начать</button>
+        <div id='Final Result' class="result"></div>
+        <div class="container-voinarovsky" id="container-voinarovsky">
+            <div class="itc-slider" data-slider="itc-slider" data-loop="false" data-autoplay="false">
+                <form id="test" name="test" action="http://index" method="post">
+                    <div class="itc-slider__wrapper">
+                        <div class="itc-slider__items">
+                            <div class="itc-slider__item">
+                                <h3 class="question_title">Шмурдик боится как мышей, так и тараканов</h3>
+                                <label class="question"><input class="question_inp" type="radio" name="q1"><span class="question_span">Шмурдик не боится тараканов</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q1"><span class="question_span">Шмурдик боится мышей</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q1"><span class="question_span">Шмурдик боится мышей больше, чем тараканов, но и тараканов боится тоже</span></label>
+                            </div>
+                            <div class="itc-slider__item">
+                                <h3 class="question_title">Известно, что грымзик обязательно или полосат, или рогат, или то и другое вместе</h3>
+                                <label class="question"><input class="question_inp" type="radio" name="q2"><span class="question_span">грымзик не может быть безрогим</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q2"><span class="question_span">грымзик не может быть однотонным и безрогим одновременно</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q2"><span class="question_span">грымзик не может быть полосатым и безрогим одновременно</span></label>
+                            </div>
+                            <div class="itc-slider__item">
+                                <h3 class="question_title">Если запырку отравить, то она сразу начнет пускать пузыри</h3>
+                                <label class="question"><input class="question_inp" type="radio" name="q3"><span class="question_span">если запырка пускает пузыри, то она была отравлена</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q3"><span class="question_span">если запырку не отравить, то она не будет пускать пузыри</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q3"><span class="question_span">если запырка не пускает пузыри, то она не отравлена</span></label>
+                            </div>
+                            <div class="itc-slider__item">
+                                <h3 class="question_title">Все охлотушки умеют играть в шашки</h3>
+                                <label class="question"><input class="question_inp" type="radio" name="q4"><span class="question_span">не бывает охлотушек, которые не умеют играть в шашки</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q4"><span class="question_span">все, кто умеет играть в шашки, являются охлотушками</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q4"><span class="question_span">не бывает охлотушек, которые умеют играть в шашки</span></label>
+                            </div>
+                            <div class="itc-slider__item">
+                                <h3 class="question_title">Дубараторы бывают либо хорошими, либо плохими. Неправда, что этот дубаратор не плохой</h3>
+                                <label class="question"><input class="question_inp" type="radio" name="q5"><span class="question_span">этот дубаратор хороший</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q5"><span class="question_span">этот дубаратор средненький</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q5"><span class="question_span">этот дубаратор плохой</span></label>
+                            </div>
+                            <div class="itc-slider__item">
+                                <h3 class="question_title">В природе обнаружено более десятка тиалей. Все обнаруженные тиали сплошь красного цвета</h3>
+                                <label class="question"><input class="question_inp" type="radio" name="q6"><span class="question_span">по крайней мере некоторые из тиалей красного цвета</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q6"><span class="question_span">по крайней мере некоторые из тиалей зеленые</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q6"><span class="question_span">некоторые тиали (из тех, что уже обнаружены) могут оказаться не красными</span></label>
+                            </div>
+                            <div class="itc-slider__item">
+                                <h3 class="question_title">Существуют шакалы с больной мухропендией</h3>
+                                <label class="question"><input class="question_inp" type="radio" name="q7"><span class="question_span">не всякий шакал может похвастаться здоровой мухропендией</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q7"><span class="question_span">не всякий шакал может похвастаться больной мухропендией</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q7"><span class="question_span">существуют шакалы со здоровой мухропендией</span></label>
+                            </div>
+                            <div class="itc-slider__item">
+                                <h3 class="question_title">Неправда, что наша тумельница большая и круглая</h3>
+                                <label class="question"><input class="question_inp" type="radio" name="q8"><span class="question_span">наша тумельница маленькая и некруглая</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q8"><span class="question_span">наша тумельница маленькая, или некруглая, или то и другое вместе</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q8"><span class="question_span">наша тумельница маленькая, или некруглая, но не то и другое вместе</span></label>
+                            </div>
+                            <div class="itc-slider__item">
+                                <h3 class="question_title">Джон всегда либо урдит, либо мурлит</h3>
+                                <label class="question"><input class="question_inp" type="radio" name="q9"><span class="question_span">Джон иногда урдит</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q9"><span class="question_span">Джон иногда урдит, а иногда мурлит</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q9"><span class="question_span">Джон никогда не занимается одновременно и урдением, и мурлением</span></label>
+                            </div>
+                            <div class="itc-slider__item">
+                                <h3 class="question_title">Журналисты наврали, что бздыш болотный безграмотен и нахален</h3>
+                                <label class="question"><input class="question_inp" type="radio" name="q10"><span class="question_span">на самом деле бздыш болотный образован и тактичен</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q10"><span class="question_span">на самом деле бздыш болотный безграмотен, но не нахален</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q10"><span class="question_span">те журналисты солгали</span></label>
+                            </div>
+                            <div class="itc-slider__item">
+                                <h3 class="question_title">Если тряхнуть бурдылькой, то начнется стрельба. Бурдылькой тряхнули</h3>
+                                <label class="question"><input class="question_inp" type="radio" name="q11"><span class="question_span">стрельба уже началась</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q11"><span class="question_span">стрельба начнется когда-нибудь</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q11"><span class="question_span">стрельба начнется когда-нибудь или уже началась</span></label>
+                            </div>
+                            <div class="itc-slider__item">
+                                <h3 class="question_title">Если тряхнуть перпелькой, то немедленно начнется стрельба. За последний час стрельбы не было</h3>
+                                <label class="question"><input class="question_inp" type="radio" name="q12"><span class="question_span">в течение последнего часа перпелькой не трясли</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q12"><span class="question_span">в течение последнего часа перпелькой трясли</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q12"><span class="question_span">а нечего было трясти чем попало</span></label>
+                            </div>
+                            <div class="itc-slider__item">
+                                <h3 class="question_title">Огромный бутряк напугал деревенского старосту</h3>
+                                <label class="question"><input class="question_inp" type="radio" name="q13"><span class="question_span">старосте приснился ночной кошмар</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q13"><span class="question_span">староста попробовал некачественной выпивки</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q13"><span class="question_span">староста был напуган</span></label>
+                            </div>
+                            <div class="itc-slider__item">
+                                <h3 class="question_title">Если почесать угубка за ухом, он начнет довольно шипеть. Если угубок довольно зашипит, то молоко поблизости скиснет</h3>
+                                <label class="question"><input class="question_inp" type="radio" name="q14"><span class="question_span">если не чесать угубка за ухом, то молоко поблизости не скиснет</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q14"><span class="question_span">если почесать угубка за ухом, молоко поблизости скиснет</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q14"><span class="question_span">молоко вдалеке никогда не скисает от чесания угубков</span></label>
+                            </div>
+                            <div class="itc-slider__item">
+                                <h3 class="question_title">Всех, кто громко обуривает, обязательно съедают. Все ухмырки постоянно громко обуривают</h3>
+                                <label class="question"><input class="question_inp" type="radio" name="q15"><span class="question_span">все, кто громко обуривает,- ухмырки</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q15"><span class="question_span">всех ухмырков обязательно съедают</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q15"><span class="question_span">некоторых ухмырков не съедают</span></label>
+                            </div>
+                            <div class="itc-slider__item">
+                                <h3 class="question_title">В реках близ Тимуграда обитает и вобла, и щука</h3>
+                                <label class="question"><input class="question_inp" type="radio" name="q16"><span class="question_span">в реках близ Тимуграда не бывает воблы</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q16"><span class="question_span">в реках близ Тимуграда обитает щука</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q16"><span class="question_span">в реках близ Тимуграда обитает только вобла и щука</span></label>
+                            </div>
+                            <div class="itc-slider__item">
+                                <h3 class="question_title">Все пуфелки радуют умом или красотой, а иногда даже и тем, и другим</h3>
+                                <label class="question"><input class="question_inp" type="radio" name="q17"><span class="question_span">пуфелка не может быть глупой</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q17"><span class="question_span">не бывает глупых некрасивых пуфелок</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q17"><span class="question_span">не бывает умных красивых пуфелок</span></label>
+                            </div>
+                            <div class="itc-slider__item">
+                                <h3 class="question_title">Когда вы спите, вы всегда мухряете</h3>
+                                <label class="question"><input class="question_inp" type="radio" name="q18"><span class="question_span">если вы мухряете, значит, вы спите</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q18"><span class="question_span">если вы не спите, вы не мухряете</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q18"><span class="question_span">если вы не мухряете, значит, вы не спите</span></label>
+                            </div>
+                            <div class="itc-slider__item">
+                                <h3 class="question_title">Все болельщики любят ыгу</h3>
+                                <label class="question"><input class="question_inp" type="radio" name="q19"><span class="question_span">не бывает болельщиков, которые не любят ыгу</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q19"><span class="question_span">все, кто любит ыгу, болеет за кого-нибудь</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q19"><span class="question_span">не бывает болельщиков, которые любят ыгу</span></label>
+                            </div>
+                            <div class="itc-slider__item">
+                                <h3 class="question_title">Есть только два вида здунцов: красные и синие. Что касается этого конкретного здунца, то он оказался вовсе не синим</h3>
+                                <label class="question"><input class="question_inp" type="radio" name="q20"><span class="question_span">этот здунец синий</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q20"><span class="question_span">этот здунец синекрасный</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q20"><span class="question_span">этот здунец красный</span></label>
+                            </div>
+                            <div class="itc-slider__item">
+                                <h3 class="question_title">Найдено множество останков быдлозавров. Но все они очень плохо сохранились</h3>
+                                <label class="question"><input class="question_inp" type="radio" name="q21"><span class="question_span">некоторые останки быдлозавров очень плохо сохранились</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q21"><span class="question_span">по крайней мере некоторые останки быдлозавров в отличном состоянии</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q21"><span class="question_span">некоторые найденные останки быдлозавров сохранились хорошо</span></label>
+                            </div>
+                            <div class="itc-slider__item">
+                                <h3 class="question_title">Некоторые лапухондрии не стабильны</h3>
+                                <label class="question"><input class="question_inp" type="radio" name="q22"><span class="question_span">не всякая лапухондрия не стабильна</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q22"><span class="question_span">существуют стабильные лапухондрии</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q22"><span class="question_span">не всякая лапухондрия стабильна</span></label>
+                            </div>
+                            <div class="itc-slider__item">
+                                <h3 class="question_title">Говорили, что дукни и острые, и твердые. Оказывается, это вовсе не так</h3>
+                                <label class="question"><input class="question_inp" type="radio" name="q23"><span class="question_span">на самом деле дукни тупые и мягкие</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q23"><span class="question_span">на самом деле дукни тупые или мягкие или то и другое сразу</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q23"><span class="question_span">на самом деле дукни тупые или мягкие, но не то и другое сразу</span></label>
+                            </div>
+                            <div class="itc-slider__item">
+                                <h3 class="question_title">Кафля всегда либо бегает, либо дышит</h3>
+                                <label class="question"><input class="question_inp" type="radio" name="q24"><span class="question_span">Кафля дышит на бегу</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q24"><span class="question_span">Кафля не дышит стоя</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q24"><span class="question_span">Кафля не дышит на бегу</span></label>
+                            </div>
+                            <div class="itc-slider__item">
+                                <h3 class="question_title">Информация о том, что завтрашнее совещание будет посвящено альным утятам, оказалась ложной</h3>
+                                <label class="question"><input class="question_inp" type="radio" name="q25"><span class="question_span">информация оказалась ложной</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q25"><span class="question_span">совещание будет посвящено не утятам</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q25"><span class="question_span">совещание будет посвящено утятам, но вовсе не альным</span></label>
+                            </div>
+                            <div class="itc-slider__item">
+                                <h3 class="question_title">Если облить уузку водой, она испортится сразу же. Эта уузка не испорчена. Сейчас я оболью ее водой</h3>
+                                <label class="question"><input class="question_inp" type="radio" name="q26"><span class="question_span">не надо обижать уузку</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q26"><span class="question_span">уузка испортится</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q26"><span class="question_span">уузка не испортится</span></label>
+                            </div>
+                            <div class="itc-slider__item">
+                                <h3 class="question_title">Если облить уузку водой, она испортится сразу же. Эта уузка не была испорчена</h3>
+                                <label class="question"><input class="question_inp" type="radio" name="q27"><span class="question_span">уузку не обливали</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q27"><span class="question_span">уузку обливали</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q27"><span class="question_span">да отстаньте вы от уузки</span></label>
+                            </div>
+                            <div class="itc-slider__item">
+                                <h3 class="question_title">Вася бросил проходить этот тест, ответив только на 28 вопросов</h3>
+                                <label class="question"><input class="question_inp" type="radio" name="q28"><span class="question_span">Вася устал, проходя тест</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q28"><span class="question_span">Вася заколебался, проходя тест</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q28"><span class="question_span">Вася не закончил тест</span></label>
+                            </div>
+                            <div class="itc-slider__item">
+                                <h3 class="question_title">Если покормить бушку, она успокоится. Спокойную бушку можно доить</h3>
+                                <label class="question"><input class="question_inp" type="radio" name="q29"><span class="question_span">если бушку не кормить, ее нельзя будет доить</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q29"><span class="question_span">бушку можно доить, но не кормить, она сама чего-нибудь найдет и съест</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q29"><span class="question_span">после кормления бушку можно доить</span></label>
+                            </div>
+                            <div class="itc-slider__item">
+                                <h3 class="question_title">Если обрадовать бушку, она даст молока. Бушка обрадуется, если дернуть ее за хвост</h3>
+                                <label class="question"><input class="question_inp" type="radio" name="q30"><span class="question_span">если дернуть бушку за хвост, она даст молока</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q30"><span class="question_span">никто не обрадуется, если дернуть его за хвост</span></label>
+                                <label class="question"><input class="question_inp" type="radio" name="q30"><span class="question_span">если не дернуть бушку за хвост, она не даст молока</span></label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <button class="itc-slider__btn itc-slider__btn_prev"></button>
+                <button class="itc-slider__btn itc-slider__btn_next"></button>
+            </div>
+        </div>
+        <button id='Finish_button' class="restart_button" name="finish" onclick="finish_test()" style="top: 5vh">Готово</button>
+        <a href="/login" class="restart_button" id='Retry'>Результаты</a>
+    </div>
+
+</div>
+<script>
+    const testMatrix = [
+        ["easy_aud_test","style_test_1.css"],
+        ["easy_eye_test","style_test_1.css"],
+        ["hard_eye_test","style_test_1.css"],
+        ["med_eye_test","style_test_1.css"],
+        ["sum_aud_test","style_test_1.css"],
+        ["sum_eye_test","style_test_1.css"],
+        ["easy_moving_test","style_test_2.css"],
+        ["hard_moving_test","style_test_2.css"],
+        ["analog_tracking","style_test_3.css"],
+        ["tracking_with_persecution","style_test_3.css"],
+        ["compasses_test","style_test_4.css"],
+        ["landolt_ring","style_test_4.css"],
+        ["raven_test","style_test_4.css"],
+        ["red_black_table","style_test_4.css"],
+        ["verbal_memory","style_test_4.css"],
+        ["visual_memory","style_test_4.css"],
+        ["voinarovsky_test","style_test_4.css"]
+    ];
+    let current = 0;
+    let testList = testMatrix.map((arr) => arr[0]);
+
+    function onLoad() {
+        if (sessionStorage.getItem('currentTest') == null) {
+            current = 0;
+        } else {
+
+            current = testList.indexOf(sessionStorage.getItem('currentTest'));
+        }
+        document.getElementById('stylesheet').href = "/public/css/"+testMatrix[current][1];
+        document.getElementById('slidercss').href = "/public/libs/itc-slider/itc-slider.css";
+        document.getElementById('testScript').src = '/public/libs/tests/'+testMatrix[current][0]+'.js';
+        document.getElementById('current').innerHTML = document.getElementById(testMatrix[current][0]).innerHTML;
+    }
+    window.onload = onLoad;
+
+    function nextTest() {
+        current++;
+        sessionStorage.setItem('currentTest', testList[current]);
+        window.location.href = window.location.href; //DON'T YOU DARE REMOVE THIS
+    }
+</script>
+<script src="/public/libs/CookieManager.js"></script>
+<script id='testScript'></script>
+</body>
+</html>
